@@ -1,0 +1,2360 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	TemplateName="GNU C/C++"
+	WorkingDir="."
+	BuildSystem="vsbuild">
+	<Config
+		Name="Debug"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdexperimental_ble_app_blinky.exe"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -ansi -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -ansi %xup -g -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+	</Config>
+	<Config
+		Name="Release"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdexperimental_ble_app_blinky.exe"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -ansi -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -ansi %xup -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+	</Config>
+	<CustomFolders>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go">
+		</Folder>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+		</Folder>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"/>
+		<Folder
+			Name="Other Files"
+			Filters="">
+		</Folder>
+	</CustomFolders>
+	<Files AutoFolders="DirectoryView">
+		<Folder Name="../../ble_central">
+			<Folder Name="ble_app_multilink_central">
+				<Folder Name="pca10040">
+					<Folder Name="s132">
+						<Folder Name="arm5_no_packs">
+							<Folder Name="_build">
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_button.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_button.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_button.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_error.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_error.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_error.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_error_weak.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_error_weak.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_error_weak.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_timer.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_timer.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_timer.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_util_platform.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_util_platform.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/app_util_platform.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.lst"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_advdata.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_advdata.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_advdata.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_advertising.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_advertising.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_advertising.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_app_multilink_central_pca10040_s132_nrf52832_xxaa.dep"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_conn_params.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_conn_params.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_conn_params.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_conn_state.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_conn_state.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_conn_state.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_db_discovery.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_db_discovery.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_db_discovery.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_lbs_c.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_lbs_c.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_lbs_c.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_srv_common.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_srv_common.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/ble_srv_common.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/boards.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/boards.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/boards.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp_btn_ble.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp_btn_ble.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp_btn_ble.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp_nfc.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp_nfc.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/bsp_nfc.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/fstorage.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/fstorage.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/fstorage.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/hardfault_implementation.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/hardfault_implementation.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/hardfault_implementation.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/main.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/main.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/main.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.axf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.build_log.htm"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.hex"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.htm"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.lnp"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.map"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.sct"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_assert.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_assert.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_assert.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_clock.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_clock.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_clock.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_common.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_common.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_common.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_gpiote.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_gpiote.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_gpiote.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_spi.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_spi.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_spi.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_uart.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_uart.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_drv_uart.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_log_backend_serial.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_log_backend_serial.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_log_backend_serial.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_log_frontend.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_log_frontend.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/nrf_log_frontend.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/oled.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/oled.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/oled.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/oledfont.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/oledfont.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/oledfont.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/rtt_syscalls_keil.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/rtt_syscalls_keil.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/rtt_syscalls_keil.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/sdk_errors.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/sdk_errors.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/sdk_errors.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/sdk_mapped_flags.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/sdk_mapped_flags.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/sdk_mapped_flags.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/segger_rtt.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/segger_rtt.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/segger_rtt.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/segger_rtt_printf.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/segger_rtt_printf.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/segger_rtt_printf.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/softdevice_handler.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/softdevice_handler.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/softdevice_handler.o"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/system_nrf52.crf"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/system_nrf52.d"/>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/_build/system_nrf52.o"/>
+							</Folder>
+							<Folder Name="RTE">
+								<Folder Name="_nrf52832_xxaa">
+									<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/RTE/_nrf52832_xxaa/RTE_Components.h"/>
+								</Folder>
+								<Folder Name="Device">
+									<Folder Name="nRF52832_xxAA">
+										<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/RTE/Device/nRF52832_xxAA/arm_startup_nrf52.s"/>
+										<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/RTE/Device/nRF52832_xxAA/arm_startup_nrf52.s.0000"/>
+										<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/RTE/Device/nRF52832_xxAA/system_nrf52.c"/>
+										<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/RTE/Device/nRF52832_xxAA/system_nrf52.c.0000"/>
+									</Folder>
+								</Folder>
+								<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/RTE/RTE_Components.h"/>
+							</Folder>
+							<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/ble_app_multilink_central_pca10040_s132.uvguix.shaniadolphin"/>
+							<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/ble_app_multilink_central_pca10040_s132.uvoptx"/>
+							<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/arm5_no_packs/ble_app_multilink_central_pca10040_s132.uvprojx"/>
+						</Folder>
+						<Folder Name="armgcc">
+							<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/armgcc/ble_app_multilink_central_gcc_nrf52.ld"/>
+							<F
+								N="../../ble_central/ble_app_multilink_central/pca10040/s132/armgcc/Makefile"
+								Type="Makefile"/>
+						</Folder>
+						<Folder Name="config">
+							<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/config/sdk_config.h"/>
+						</Folder>
+						<Folder Name="iar">
+							<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/iar/ble_app_multilink_central_iar_nRF5x.icf"/>
+							<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/iar/ble_app_multilink_central_pca10040_s132.ewd"/>
+							<F N="../../ble_central/ble_app_multilink_central/pca10040/s132/iar/ble_app_multilink_central_pca10040_s132.ewp"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<F N="../../ble_central/ble_app_multilink_central/main.c"/>
+			</Folder>
+		</Folder>
+		<Folder Name="../../BLE_VOLMEAS">
+			<Folder Name="pca10040">
+				<Folder Name="s132">
+					<Folder Name="arm5_no_packs">
+						<Folder Name="_build">
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/app_button.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/app_error.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/app_error_weak.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/app_timer.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/app_util_platform.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.lst"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.o"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/ble_advdata.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/ble_app_volmeas_pca10040_s132_nrf52832_xxaa.dep"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/ble_conn_params.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/ble_srv_common.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/ble_volmeas.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/boards.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/bsp.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/bsp_nfc.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/hardfault_implementation.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/main.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.build_log.htm"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.sct"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_assert.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_drv_clock.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_drv_common.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_drv_gpiote.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_drv_saadc.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_drv_spi.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_drv_uart.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_log_backend_serial.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_log_frontend.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/nrf_saadc.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/oled.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/oledfont.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/sdk_errors.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/softdevice_handler.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/system_nrf52.crf"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/system_nrf52.d"/>
+							<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/_build/system_nrf52.o"/>
+						</Folder>
+						<Folder Name="RTE">
+							<Folder Name="_nrf52832_xxaa">
+								<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/RTE/_nrf52832_xxaa/RTE_Components.h"/>
+							</Folder>
+							<Folder Name="Device">
+								<Folder Name="nRF52832_xxAA">
+									<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/RTE/Device/nRF52832_xxAA/arm_startup_nrf52.s"/>
+									<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/RTE/Device/nRF52832_xxAA/system_nrf52.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/ble_app_volmeas_pca10040_s132.uvguix.shaniadolphin"/>
+						<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/ble_app_volmeas_pca10040_s132.uvoptx"/>
+						<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/ble_app_volmeas_pca10040_s132.uvprojx"/>
+						<F N="../../BLE_VOLMEAS/pca10040/s132/arm5_no_packs/main.c"/>
+					</Folder>
+					<Folder Name="config">
+						<F N="../../BLE_VOLMEAS/pca10040/s132/config/sdk_config.h"/>
+					</Folder>
+				</Folder>
+			</Folder>
+		</Folder>
+		<Folder Name="../../../components">
+			<Folder Name="ant">
+				<Folder Name="ant_channel_config">
+					<F N="../../../components/ant/ant_channel_config/ant_channel_config.c"/>
+					<F N="../../../components/ant/ant_channel_config/ant_channel_config.h"/>
+					<F N="../../../components/ant/ant_channel_config/ant_channel_config_dox_config.h"/>
+				</Folder>
+				<Folder Name="ant_encryption">
+					<F N="../../../components/ant/ant_encryption/ant_encrypt_config.c"/>
+					<F N="../../../components/ant/ant_encryption/ant_encrypt_config.h"/>
+					<F N="../../../components/ant/ant_encryption/ant_encrypt_config_dox_config.h"/>
+					<F N="../../../components/ant/ant_encryption/ant_encrypt_negotiation_slave.c"/>
+					<F N="../../../components/ant/ant_encryption/ant_encrypt_negotiation_slave.h"/>
+					<F N="../../../components/ant/ant_encryption/ant_encrypt_negotiation_slave_dox_config.h"/>
+				</Folder>
+				<Folder Name="ant_fs">
+					<F N="../../../components/ant/ant_fs/ant_fs_dox_config.h"/>
+					<F N="../../../components/ant/ant_fs/antfs.c"/>
+					<F N="../../../components/ant/ant_fs/antfs.h"/>
+					<F N="../../../components/ant/ant_fs/crc.c"/>
+					<F N="../../../components/ant/ant_fs/crc.h"/>
+					<F N="../../../components/ant/ant_fs/defines.h"/>
+				</Folder>
+				<Folder Name="ant_key_manager">
+					<Folder Name="config">
+						<F N="../../../components/ant/ant_key_manager/config/ant_key_manager_config.h"/>
+					</Folder>
+					<F N="../../../components/ant/ant_key_manager/ant_key_manager.c"/>
+					<F N="../../../components/ant/ant_key_manager/ant_key_manager.h"/>
+					<F N="../../../components/ant/ant_key_manager/ant_key_manager_dox_config.h"/>
+				</Folder>
+				<Folder Name="ant_profiles">
+					<Folder Name="ant_bpwr">
+						<Folder Name="pages">
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_common_data.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_common_data.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_1.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_1.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_16.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_16.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_17.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_17.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_18.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_18.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_torque.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_page_torque.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/pages/ant_bpwr_pages.h"/>
+						</Folder>
+						<Folder Name="simulator">
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/simulator/ant_bpwr_simulator.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/simulator/ant_bpwr_simulator.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/simulator/ant_bpwr_simulator_local.h"/>
+						</Folder>
+						<Folder Name="utils">
+							<F N="../../../components/ant/ant_profiles/ant_bpwr/utils/ant_bpwr_utils.h"/>
+						</Folder>
+						<F N="../../../components/ant/ant_profiles/ant_bpwr/ant_bpwr.c"/>
+						<F N="../../../components/ant/ant_profiles/ant_bpwr/ant_bpwr.h"/>
+						<F N="../../../components/ant/ant_profiles/ant_bpwr/ant_bpwr_dox_config.h"/>
+						<F N="../../../components/ant/ant_profiles/ant_bpwr/ant_bpwr_local.h"/>
+					</Folder>
+					<Folder Name="ant_bsc">
+						<Folder Name="pages">
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_combined_page_0.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_combined_page_0.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_0.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_0.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_1.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_1.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_2.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_2.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_3.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_3.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_4.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_4.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_5.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_page_5.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/pages/ant_bsc_pages.h"/>
+						</Folder>
+						<Folder Name="simulator">
+							<F N="../../../components/ant/ant_profiles/ant_bsc/simulator/ant_bsc_simulator.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/simulator/ant_bsc_simulator.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_bsc/simulator/ant_bsc_simulator_local.h"/>
+						</Folder>
+						<Folder Name="utils">
+							<F N="../../../components/ant/ant_profiles/ant_bsc/utils/ant_bsc_utils.h"/>
+						</Folder>
+						<F N="../../../components/ant/ant_profiles/ant_bsc/ant_bsc.c"/>
+						<F N="../../../components/ant/ant_profiles/ant_bsc/ant_bsc.h"/>
+						<F N="../../../components/ant/ant_profiles/ant_bsc/ant_bsc_dox_config.h"/>
+						<F N="../../../components/ant/ant_profiles/ant_bsc/ant_bsc_local.h"/>
+					</Folder>
+					<Folder Name="ant_common">
+						<Folder Name="ant_request_controller">
+							<F N="../../../components/ant/ant_profiles/ant_common/ant_request_controller/ant_request_controller.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/ant_request_controller/ant_request_controller.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/ant_request_controller/ant_request_controller_dox_config.h"/>
+						</Folder>
+						<Folder Name="pages">
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_70.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_70.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_70_dox_config.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_80.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_80.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_80_dox_config.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_81.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_81.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_common/pages/ant_common_page_81_dox_config.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="ant_hrm">
+						<Folder Name="pages">
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_0.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_0.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_1.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_1.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_2.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_2.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_3.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_3.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_4.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_page_4.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/pages/ant_hrm_pages.h"/>
+						</Folder>
+						<Folder Name="simulator">
+							<F N="../../../components/ant/ant_profiles/ant_hrm/simulator/ant_hrm_simulator.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/simulator/ant_hrm_simulator.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_hrm/simulator/ant_hrm_simulator_local.h"/>
+						</Folder>
+						<Folder Name="utils">
+							<F N="../../../components/ant/ant_profiles/ant_hrm/utils/ant_hrm_utils.h"/>
+						</Folder>
+						<F N="../../../components/ant/ant_profiles/ant_hrm/ant_hrm.c"/>
+						<F N="../../../components/ant/ant_profiles/ant_hrm/ant_hrm.h"/>
+						<F N="../../../components/ant/ant_profiles/ant_hrm/ant_hrm_dox_config.h"/>
+						<F N="../../../components/ant/ant_profiles/ant_hrm/ant_hrm_local.h"/>
+					</Folder>
+					<Folder Name="ant_sdm">
+						<Folder Name="pages">
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_common_data.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_common_data.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_1.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_1.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_16.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_16.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_2.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_2.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_22.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_22.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_3.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_page_3.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/pages/ant_sdm_pages.h"/>
+						</Folder>
+						<Folder Name="simulator">
+							<F N="../../../components/ant/ant_profiles/ant_sdm/simulator/ant_sdm_simulator.c"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/simulator/ant_sdm_simulator.h"/>
+							<F N="../../../components/ant/ant_profiles/ant_sdm/simulator/ant_sdm_simulator_local.h"/>
+						</Folder>
+						<Folder Name="utils">
+							<F N="../../../components/ant/ant_profiles/ant_sdm/utils/ant_sdm_utils.h"/>
+						</Folder>
+						<F N="../../../components/ant/ant_profiles/ant_sdm/ant_sdm.c"/>
+						<F N="../../../components/ant/ant_profiles/ant_sdm/ant_sdm.h"/>
+						<F N="../../../components/ant/ant_profiles/ant_sdm/ant_sdm_dox_config.h"/>
+						<F N="../../../components/ant/ant_profiles/ant_sdm/ant_sdm_local.h"/>
+					</Folder>
+				</Folder>
+				<Folder Name="ant_search_config">
+					<F N="../../../components/ant/ant_search_config/ant_search_config.c"/>
+					<F N="../../../components/ant/ant_search_config/ant_search_config.h"/>
+					<F N="../../../components/ant/ant_search_config/ant_search_config_dox_config.h"/>
+				</Folder>
+				<Folder Name="ant_stack_config">
+					<Folder Name="config">
+						<F N="../../../components/ant/ant_stack_config/config/ant_stack_config_defs.h"/>
+					</Folder>
+					<F N="../../../components/ant/ant_stack_config/ant_stack_config.c"/>
+					<F N="../../../components/ant/ant_stack_config/ant_stack_config.h"/>
+					<F N="../../../components/ant/ant_stack_config/ant_stack_config_dox_config.h"/>
+				</Folder>
+				<Folder Name="ant_state_indicator">
+					<F N="../../../components/ant/ant_state_indicator/ant_state_indicator.c"/>
+					<F N="../../../components/ant/ant_state_indicator/ant_state_indicator.h"/>
+					<F N="../../../components/ant/ant_state_indicator/ant_state_indicator_dox_config.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="ble">
+				<Folder Name="ble_advertising">
+					<F N="../../../components/ble/ble_advertising/ble_advertising.c"/>
+					<F N="../../../components/ble/ble_advertising/ble_advertising.h"/>
+					<F N="../../../components/ble/ble_advertising/ble_advertising_dox_config.h"/>
+				</Folder>
+				<Folder Name="ble_db_discovery">
+					<F N="../../../components/ble/ble_db_discovery/ble_db_discovery.c"/>
+					<F N="../../../components/ble/ble_db_discovery/ble_db_discovery.h"/>
+					<F N="../../../components/ble/ble_db_discovery/ble_db_discovery_dox_config.h"/>
+				</Folder>
+				<Folder Name="ble_debug_assert_handler">
+					<F N="../../../components/ble/ble_debug_assert_handler/ble_debug_assert_handler.c"/>
+					<F N="../../../components/ble/ble_debug_assert_handler/ble_debug_assert_handler.h"/>
+				</Folder>
+				<Folder Name="ble_dtm">
+					<F N="../../../components/ble/ble_dtm/ble_dtm.c"/>
+					<F N="../../../components/ble/ble_dtm/ble_dtm.h"/>
+					<F N="../../../components/ble/ble_dtm/ble_dtm_dox_config.h"/>
+					<F N="../../../components/ble/ble_dtm/ble_dtm_hw.h"/>
+					<F N="../../../components/ble/ble_dtm/ble_dtm_hw_nrf51.c"/>
+					<F N="../../../components/ble/ble_dtm/ble_dtm_hw_nrf52.c"/>
+				</Folder>
+				<Folder Name="ble_error_log">
+					<F N="../../../components/ble/ble_error_log/ble_error_log.c"/>
+					<F N="../../../components/ble/ble_error_log/ble_error_log.h"/>
+				</Folder>
+				<Folder Name="ble_racp">
+					<F N="../../../components/ble/ble_racp/ble_racp.c"/>
+					<F N="../../../components/ble/ble_racp/ble_racp.h"/>
+					<F N="../../../components/ble/ble_racp/ble_racp_dox_config.h"/>
+				</Folder>
+				<Folder Name="ble_radio_notification">
+					<F N="../../../components/ble/ble_radio_notification/ble_radio_notification.c"/>
+					<F N="../../../components/ble/ble_radio_notification/ble_radio_notification.h"/>
+				</Folder>
+				<Folder Name="ble_services">
+					<Folder Name="ble_ancs_c">
+						<F N="../../../components/ble/ble_services/ble_ancs_c/ancs_app_attr_get.c"/>
+						<F N="../../../components/ble/ble_services/ble_ancs_c/ancs_app_attr_get.h"/>
+						<F N="../../../components/ble/ble_services/ble_ancs_c/ancs_attr_parser.c"/>
+						<F N="../../../components/ble/ble_services/ble_ancs_c/ancs_attr_parser.h"/>
+						<F N="../../../components/ble/ble_services/ble_ancs_c/ancs_tx_buffer.c"/>
+						<F N="../../../components/ble/ble_services/ble_ancs_c/ancs_tx_buffer.h"/>
+						<F N="../../../components/ble/ble_services/ble_ancs_c/ble_ancs_c_dox_config.h"/>
+						<F N="../../../components/ble/ble_services/ble_ancs_c/nrf_ble_ancs_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_ancs_c/nrf_ble_ancs_c.h"/>
+					</Folder>
+					<Folder Name="ble_ans_c">
+						<F N="../../../components/ble/ble_services/ble_ans_c/ble_ans_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_ans_c/ble_ans_c.h"/>
+						<F N="../../../components/ble/ble_services/ble_ans_c/ble_ans_c_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_bas">
+						<F N="../../../components/ble/ble_services/ble_bas/ble_bas.c"/>
+						<F N="../../../components/ble/ble_services/ble_bas/ble_bas.h"/>
+						<F N="../../../components/ble/ble_services/ble_bas/ble_bas_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_bas_c">
+						<F N="../../../components/ble/ble_services/ble_bas_c/ble_bas_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_bas_c/ble_bas_c.h"/>
+						<F N="../../../components/ble/ble_services/ble_bas_c/ble_bas_c_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_bps">
+						<F N="../../../components/ble/ble_services/ble_bps/ble_bps.c"/>
+						<F N="../../../components/ble/ble_services/ble_bps/ble_bps.h"/>
+						<F N="../../../components/ble/ble_services/ble_bps/ble_bps_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_cscs">
+						<F N="../../../components/ble/ble_services/ble_cscs/ble_cscs.c"/>
+						<F N="../../../components/ble/ble_services/ble_cscs/ble_cscs.h"/>
+						<F N="../../../components/ble/ble_services/ble_cscs/ble_cscs_dox_config.h"/>
+						<F N="../../../components/ble/ble_services/ble_cscs/ble_sc_ctrlpt.c"/>
+						<F N="../../../components/ble/ble_services/ble_cscs/ble_sc_ctrlpt.h"/>
+					</Folder>
+					<Folder Name="ble_cts_c">
+						<F N="../../../components/ble/ble_services/ble_cts_c/ble_cts_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_cts_c/ble_cts_c.h"/>
+						<F N="../../../components/ble/ble_services/ble_cts_c/ble_cts_c_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_dfu">
+						<F N="../../../components/ble/ble_services/ble_dfu/ble_dfu.c"/>
+						<F N="../../../components/ble/ble_services/ble_dfu/ble_dfu.h"/>
+					</Folder>
+					<Folder Name="ble_dis">
+						<F N="../../../components/ble/ble_services/ble_dis/ble_dis.c"/>
+						<F N="../../../components/ble/ble_services/ble_dis/ble_dis.h"/>
+						<F N="../../../components/ble/ble_services/ble_dis/ble_dis_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_escs">
+						<F N="../../../components/ble/ble_services/ble_escs/escs_defs.h"/>
+						<F N="../../../components/ble/ble_services/ble_escs/nrf_ble_escs.c"/>
+						<F N="../../../components/ble/ble_services/ble_escs/nrf_ble_escs.h"/>
+						<F N="../../../components/ble/ble_services/ble_escs/nrf_ble_escs_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_gls">
+						<F N="../../../components/ble/ble_services/ble_gls/ble_gls.c"/>
+						<F N="../../../components/ble/ble_services/ble_gls/ble_gls.h"/>
+						<F N="../../../components/ble/ble_services/ble_gls/ble_gls_db.c"/>
+						<F N="../../../components/ble/ble_services/ble_gls/ble_gls_db.h"/>
+						<F N="../../../components/ble/ble_services/ble_gls/ble_gls_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_hids">
+						<F N="../../../components/ble/ble_services/ble_hids/ble_hids.c"/>
+						<F N="../../../components/ble/ble_services/ble_hids/ble_hids.h"/>
+						<F N="../../../components/ble/ble_services/ble_hids/ble_hids_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_hrs">
+						<F N="../../../components/ble/ble_services/ble_hrs/ble_hrs.c"/>
+						<F N="../../../components/ble/ble_services/ble_hrs/ble_hrs.h"/>
+						<F N="../../../components/ble/ble_services/ble_hrs/ble_hrs_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_hrs_c">
+						<F N="../../../components/ble/ble_services/ble_hrs_c/ble_hrs_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_hrs_c/ble_hrs_c.h"/>
+						<F N="../../../components/ble/ble_services/ble_hrs_c/ble_hrs_c_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_hts">
+						<F N="../../../components/ble/ble_services/ble_hts/ble_hts.c"/>
+						<F N="../../../components/ble/ble_services/ble_hts/ble_hts.h"/>
+						<F N="../../../components/ble/ble_services/ble_hts/ble_hts_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_ias">
+						<F N="../../../components/ble/ble_services/ble_ias/ble_ias.c"/>
+						<F N="../../../components/ble/ble_services/ble_ias/ble_ias.h"/>
+						<F N="../../../components/ble/ble_services/ble_ias/ble_ias_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_ias_c">
+						<F N="../../../components/ble/ble_services/ble_ias_c/ble_ias_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_ias_c/ble_ias_c.h"/>
+						<F N="../../../components/ble/ble_services/ble_ias_c/ble_ias_c_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_lbs">
+						<F N="../../../components/ble/ble_services/ble_lbs/ble_lbs.c"/>
+						<F N="../../../components/ble/ble_services/ble_lbs/ble_lbs.h"/>
+						<F N="../../../components/ble/ble_services/ble_lbs/ble_lbs_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_lbs_c">
+						<F N="../../../components/ble/ble_services/ble_lbs_c/ble_lbs_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_lbs_c/ble_lbs_c.h"/>
+						<F N="../../../components/ble/ble_services/ble_lbs_c/ble_lbs_c_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_lls">
+						<F N="../../../components/ble/ble_services/ble_lls/ble_lls.c"/>
+						<F N="../../../components/ble/ble_services/ble_lls/ble_lls.h"/>
+						<F N="../../../components/ble/ble_services/ble_lls/ble_lls_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_nus">
+						<F N="../../../components/ble/ble_services/ble_nus/ble_nus.c"/>
+						<F N="../../../components/ble/ble_services/ble_nus/ble_nus.h"/>
+						<F N="../../../components/ble/ble_services/ble_nus/ble_nus_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_nus_c">
+						<F N="../../../components/ble/ble_services/ble_nus_c/ble_nus_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_nus_c/ble_nus_c.h"/>
+						<F N="../../../components/ble/ble_services/ble_nus_c/ble_nus_c_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_rscs">
+						<F N="../../../components/ble/ble_services/ble_rscs/ble_rscs.c"/>
+						<F N="../../../components/ble/ble_services/ble_rscs/ble_rscs.h"/>
+						<F N="../../../components/ble/ble_services/ble_rscs/ble_rscs_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_rscs_c">
+						<F N="../../../components/ble/ble_services/ble_rscs_c/ble_rscs_c.c"/>
+						<F N="../../../components/ble/ble_services/ble_rscs_c/ble_rscs_c.h"/>
+						<F N="../../../components/ble/ble_services/ble_rscs_c/ble_rscs_c_dox_config.h"/>
+					</Folder>
+					<Folder Name="ble_tps">
+						<F N="../../../components/ble/ble_services/ble_tps/ble_tps.c"/>
+						<F N="../../../components/ble/ble_services/ble_tps/ble_tps.h"/>
+						<F N="../../../components/ble/ble_services/ble_tps/ble_tps_dox_config.h"/>
+					</Folder>
+					<Folder Name="experimental_ble_lns">
+						<F N="../../../components/ble/ble_services/experimental_ble_lns/ble_ln_common.h"/>
+						<F N="../../../components/ble/ble_services/experimental_ble_lns/ble_ln_cp.c"/>
+						<F N="../../../components/ble/ble_services/experimental_ble_lns/ble_ln_cp.h"/>
+						<F N="../../../components/ble/ble_services/experimental_ble_lns/ble_ln_db.c"/>
+						<F N="../../../components/ble/ble_services/experimental_ble_lns/ble_ln_db.h"/>
+						<F N="../../../components/ble/ble_services/experimental_ble_lns/ble_lns.c"/>
+						<F N="../../../components/ble/ble_services/experimental_ble_lns/ble_lns.h"/>
+					</Folder>
+					<Folder Name="experimental_nrf_ble_bms">
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_bms/nrf_ble_bms.c"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_bms/nrf_ble_bms.h"/>
+					</Folder>
+					<Folder Name="experimental_nrf_ble_cgms">
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_db.c"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_db.h"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_meas.c"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_meas.h"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_racp.c"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_racp.h"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_socp.c"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_socp.h"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_sst.c"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/cgms_sst.h"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/nrf_ble_cgms.c"/>
+						<F N="../../../components/ble/ble_services/experimental_nrf_ble_cgms/nrf_ble_cgms.h"/>
+					</Folder>
+				</Folder>
+				<Folder Name="common">
+					<F N="../../../components/ble/common/ble_advdata.c"/>
+					<F N="../../../components/ble/common/ble_advdata.h"/>
+					<F N="../../../components/ble/common/ble_conn_params.c"/>
+					<F N="../../../components/ble/common/ble_conn_params.h"/>
+					<F N="../../../components/ble/common/ble_conn_state.c"/>
+					<F N="../../../components/ble/common/ble_conn_state.h"/>
+					<F N="../../../components/ble/common/ble_date_time.h"/>
+					<F N="../../../components/ble/common/ble_gatt_db.h"/>
+					<F N="../../../components/ble/common/ble_sensor_location.h"/>
+					<F N="../../../components/ble/common/ble_srv_common.c"/>
+					<F N="../../../components/ble/common/ble_srv_common.h"/>
+				</Folder>
+				<Folder Name="nrf_ble_gatt">
+					<F N="../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.c"/>
+					<F N="../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h"/>
+					<F N="../../../components/ble/nrf_ble_gatt/nrf_ble_gatt_dox_config.h"/>
+				</Folder>
+				<Folder Name="nrf_ble_qwr">
+					<F N="../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.c"/>
+					<F N="../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.h"/>
+					<F N="../../../components/ble/nrf_ble_qwr/nrf_ble_qwr_dox_config.h"/>
+				</Folder>
+				<Folder Name="peer_manager">
+					<F N="../../../components/ble/peer_manager/gatt_cache_manager.c"/>
+					<F N="../../../components/ble/peer_manager/gatt_cache_manager.h"/>
+					<F N="../../../components/ble/peer_manager/gatts_cache_manager.c"/>
+					<F N="../../../components/ble/peer_manager/gatts_cache_manager.h"/>
+					<F N="../../../components/ble/peer_manager/id_manager.c"/>
+					<F N="../../../components/ble/peer_manager/id_manager.h"/>
+					<F N="../../../components/ble/peer_manager/peer_data.c"/>
+					<F N="../../../components/ble/peer_manager/peer_data.h"/>
+					<F N="../../../components/ble/peer_manager/peer_data_storage.c"/>
+					<F N="../../../components/ble/peer_manager/peer_data_storage.h"/>
+					<F N="../../../components/ble/peer_manager/peer_database.c"/>
+					<F N="../../../components/ble/peer_manager/peer_database.h"/>
+					<F N="../../../components/ble/peer_manager/peer_id.c"/>
+					<F N="../../../components/ble/peer_manager/peer_id.h"/>
+					<F N="../../../components/ble/peer_manager/peer_manager.c"/>
+					<F N="../../../components/ble/peer_manager/peer_manager.h"/>
+					<F N="../../../components/ble/peer_manager/peer_manager_dox_config.h"/>
+					<F N="../../../components/ble/peer_manager/peer_manager_internal.h"/>
+					<F N="../../../components/ble/peer_manager/peer_manager_types.h"/>
+					<F N="../../../components/ble/peer_manager/pm_buffer.c"/>
+					<F N="../../../components/ble/peer_manager/pm_buffer.h"/>
+					<F N="../../../components/ble/peer_manager/pm_mutex.c"/>
+					<F N="../../../components/ble/peer_manager/pm_mutex.h"/>
+					<F N="../../../components/ble/peer_manager/security_dispatcher.c"/>
+					<F N="../../../components/ble/peer_manager/security_dispatcher.h"/>
+					<F N="../../../components/ble/peer_manager/security_manager.c"/>
+					<F N="../../../components/ble/peer_manager/security_manager.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="boards">
+				<F N="../../../components/boards/arduino_primo.h"/>
+				<F N="../../../components/boards/boards.c"/>
+				<F N="../../../components/boards/boards.h"/>
+				<F N="../../../components/boards/d52_starterkit.h"/>
+				<F N="../../../components/boards/n5_starterkit.h"/>
+				<F N="../../../components/boards/nrf6310.h"/>
+				<F N="../../../components/boards/pca10000.h"/>
+				<F N="../../../components/boards/pca10001.h"/>
+				<F N="../../../components/boards/pca10003.h"/>
+				<F N="../../../components/boards/pca10028.h"/>
+				<F N="../../../components/boards/pca10031.h"/>
+				<F N="../../../components/boards/pca10036.h"/>
+				<F N="../../../components/boards/pca10040.h"/>
+				<F N="../../../components/boards/pca10056.h"/>
+				<F N="../../../components/boards/pca20006.h"/>
+				<F N="../../../components/boards/wt51822.h"/>
+			</Folder>
+			<Folder Name="device">
+				<F N="../../../components/device/compiler_abstraction.h"/>
+				<F N="../../../components/device/nrf.h"/>
+				<F N="../../../components/device/nrf51.h"/>
+				<F N="../../../components/device/nrf51422_peripherals.h"/>
+				<F N="../../../components/device/nrf51802_peripherals.h"/>
+				<F N="../../../components/device/nrf51822_peripherals.h"/>
+				<F N="../../../components/device/nrf51_bitfields.h"/>
+				<F N="../../../components/device/nrf51_deprecated.h"/>
+				<F N="../../../components/device/nrf51_to_nrf52.h"/>
+				<F N="../../../components/device/nrf51_to_nrf52840.h"/>
+				<F N="../../../components/device/nrf52.h"/>
+				<F N="../../../components/device/nrf52832_peripherals.h"/>
+				<F N="../../../components/device/nrf52840.h"/>
+				<F N="../../../components/device/nrf52840_bitfields.h"/>
+				<F N="../../../components/device/nrf52840_peripherals.h"/>
+				<F N="../../../components/device/nrf52_bitfields.h"/>
+				<F N="../../../components/device/nrf52_name_change.h"/>
+				<F N="../../../components/device/nrf52_to_nrf52840.h"/>
+			</Folder>
+			<Folder Name="drivers_ext">
+				<Folder Name="adns2080">
+					<F N="../../../components/drivers_ext/adns2080/adns2080.c"/>
+					<F N="../../../components/drivers_ext/adns2080/adns2080.h"/>
+				</Folder>
+				<Folder Name="cherry8x16">
+					<F N="../../../components/drivers_ext/cherry8x16/cherry8x16.c"/>
+					<F N="../../../components/drivers_ext/cherry8x16/cherry8x16.h"/>
+				</Folder>
+				<Folder Name="ds1624">
+					<F N="../../../components/drivers_ext/ds1624/ds1624.c"/>
+					<F N="../../../components/drivers_ext/ds1624/ds1624.h"/>
+				</Folder>
+				<Folder Name="max9850">
+					<F N="../../../components/drivers_ext/max9850/max9850.c"/>
+					<F N="../../../components/drivers_ext/max9850/max9850.h"/>
+				</Folder>
+				<Folder Name="mcp4725">
+					<F N="../../../components/drivers_ext/mcp4725/mcp4725.c"/>
+					<F N="../../../components/drivers_ext/mcp4725/mcp4725.h"/>
+					<F N="../../../components/drivers_ext/mcp4725/mcp4725_dox_config.h"/>
+				</Folder>
+				<Folder Name="mpu6050">
+					<F N="../../../components/drivers_ext/mpu6050/mpu6050.c"/>
+					<F N="../../../components/drivers_ext/mpu6050/mpu6050.h"/>
+				</Folder>
+				<Folder Name="nrf6350">
+					<F N="../../../components/drivers_ext/nrf6350/nrf6350.c"/>
+					<F N="../../../components/drivers_ext/nrf6350/nrf6350.h"/>
+				</Folder>
+				<Folder Name="synaptics_touchpad">
+					<F N="../../../components/drivers_ext/synaptics_touchpad/synaptics_touchpad.c"/>
+					<F N="../../../components/drivers_ext/synaptics_touchpad/synaptics_touchpad.h"/>
+				</Folder>
+				<Folder Name="uda1380">
+					<F N="../../../components/drivers_ext/uda1380/uda1380.c"/>
+					<F N="../../../components/drivers_ext/uda1380/uda1380.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="drivers_nrf">
+				<Folder Name="adc">
+					<F N="../../../components/drivers_nrf/adc/nrf_drv_adc.c"/>
+					<F N="../../../components/drivers_nrf/adc/nrf_drv_adc.h"/>
+					<F N="../../../components/drivers_nrf/adc/nrf_drv_adc_dox_config.h"/>
+				</Folder>
+				<Folder Name="ble_flash">
+					<F N="../../../components/drivers_nrf/ble_flash/ble_flash.c"/>
+					<F N="../../../components/drivers_nrf/ble_flash/ble_flash.h"/>
+				</Folder>
+				<Folder Name="clock">
+					<F N="../../../components/drivers_nrf/clock/nrf_drv_clock.c"/>
+					<F N="../../../components/drivers_nrf/clock/nrf_drv_clock.h"/>
+					<F N="../../../components/drivers_nrf/clock/nrf_drv_clock_dox_config.h"/>
+				</Folder>
+				<Folder Name="common">
+					<F N="../../../components/drivers_nrf/common/nrf_drv_common.c"/>
+					<F N="../../../components/drivers_nrf/common/nrf_drv_common.h"/>
+					<F N="../../../components/drivers_nrf/common/nrf_drv_common_dox_config.h"/>
+				</Folder>
+				<Folder Name="comp">
+					<F N="../../../components/drivers_nrf/comp/nrf_drv_comp.c"/>
+					<F N="../../../components/drivers_nrf/comp/nrf_drv_comp.h"/>
+					<F N="../../../components/drivers_nrf/comp/nrf_drv_comp_dox_config.h"/>
+				</Folder>
+				<Folder Name="delay">
+					<F N="../../../components/drivers_nrf/delay/nrf_delay.h"/>
+				</Folder>
+				<Folder Name="gpiote">
+					<F N="../../../components/drivers_nrf/gpiote/nrf_drv_gpiote.c"/>
+					<F N="../../../components/drivers_nrf/gpiote/nrf_drv_gpiote.h"/>
+					<F N="../../../components/drivers_nrf/gpiote/nrf_drv_gpiote_dox_config.h"/>
+				</Folder>
+				<Folder Name="hal">
+					<F N="../../../components/drivers_nrf/hal/nrf_adc.c"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_adc.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_clock.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_comp.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_ecb.c"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_ecb.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_egu.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_gpio.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_gpiote.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_i2s.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_lpcomp.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_nvmc.c"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_nvmc.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_pdm.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_peripherals.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_power.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_ppi.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_pwm.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_qdec.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_qspi.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_rng.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_rtc.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_saadc.c"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_saadc.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_spi.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_spim.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_spis.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_systick.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_temp.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_timer.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_twi.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_twim.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_twis.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_uart.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_uarte.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_usbd.h"/>
+					<F N="../../../components/drivers_nrf/hal/nrf_wdt.h"/>
+				</Folder>
+				<Folder Name="i2s">
+					<F N="../../../components/drivers_nrf/i2s/nrf_drv_i2s.c"/>
+					<F N="../../../components/drivers_nrf/i2s/nrf_drv_i2s.h"/>
+					<F N="../../../components/drivers_nrf/i2s/nrf_drv_i2s_dox_config.h"/>
+				</Folder>
+				<Folder Name="lpcomp">
+					<F N="../../../components/drivers_nrf/lpcomp/nrf_drv_lpcomp.c"/>
+					<F N="../../../components/drivers_nrf/lpcomp/nrf_drv_lpcomp.h"/>
+					<F N="../../../components/drivers_nrf/lpcomp/nrf_drv_lpcomp_dox_config.h"/>
+				</Folder>
+				<Folder Name="nrf_soc_nosd">
+					<F N="../../../components/drivers_nrf/nrf_soc_nosd/nrf_error.h"/>
+					<F N="../../../components/drivers_nrf/nrf_soc_nosd/nrf_nvic.c"/>
+					<F N="../../../components/drivers_nrf/nrf_soc_nosd/nrf_nvic.h"/>
+					<F N="../../../components/drivers_nrf/nrf_soc_nosd/nrf_soc.c"/>
+					<F N="../../../components/drivers_nrf/nrf_soc_nosd/nrf_soc.h"/>
+				</Folder>
+				<Folder Name="pdm">
+					<F N="../../../components/drivers_nrf/pdm/nrf_drv_pdm.c"/>
+					<F N="../../../components/drivers_nrf/pdm/nrf_drv_pdm.h"/>
+					<F N="../../../components/drivers_nrf/pdm/nrf_drv_pdm_dox_config.h"/>
+				</Folder>
+				<Folder Name="power">
+					<F N="../../../components/drivers_nrf/power/nrf_drv_power.c"/>
+					<F N="../../../components/drivers_nrf/power/nrf_drv_power.h"/>
+					<F N="../../../components/drivers_nrf/power/nrf_drv_power_dox_config.h"/>
+				</Folder>
+				<Folder Name="ppi">
+					<F N="../../../components/drivers_nrf/ppi/nrf_drv_ppi.c"/>
+					<F N="../../../components/drivers_nrf/ppi/nrf_drv_ppi.h"/>
+					<F N="../../../components/drivers_nrf/ppi/nrf_drv_ppi_dox_config.h"/>
+				</Folder>
+				<Folder Name="pwm">
+					<F N="../../../components/drivers_nrf/pwm/nrf_drv_pwm.c"/>
+					<F N="../../../components/drivers_nrf/pwm/nrf_drv_pwm.h"/>
+					<F N="../../../components/drivers_nrf/pwm/nrf_drv_pwm_dox_config.h"/>
+				</Folder>
+				<Folder Name="qdec">
+					<F N="../../../components/drivers_nrf/qdec/nrf_drv_qdec.c"/>
+					<F N="../../../components/drivers_nrf/qdec/nrf_drv_qdec.h"/>
+					<F N="../../../components/drivers_nrf/qdec/nrf_drv_qdec_dox_config.h"/>
+				</Folder>
+				<Folder Name="qspi">
+					<F N="../../../components/drivers_nrf/qspi/nrf_drv_qspi.c"/>
+					<F N="../../../components/drivers_nrf/qspi/nrf_drv_qspi.h"/>
+					<F N="../../../components/drivers_nrf/qspi/nrf_drv_qspi_dox_config.h"/>
+				</Folder>
+				<Folder Name="radio_config">
+					<F N="../../../components/drivers_nrf/radio_config/radio_config.c"/>
+					<F N="../../../components/drivers_nrf/radio_config/radio_config.h"/>
+				</Folder>
+				<Folder Name="rng">
+					<F N="../../../components/drivers_nrf/rng/nrf_drv_rng.c"/>
+					<F N="../../../components/drivers_nrf/rng/nrf_drv_rng.h"/>
+					<F N="../../../components/drivers_nrf/rng/nrf_drv_rng_dox_config.h"/>
+				</Folder>
+				<Folder Name="rtc">
+					<F N="../../../components/drivers_nrf/rtc/nrf_drv_rtc.c"/>
+					<F N="../../../components/drivers_nrf/rtc/nrf_drv_rtc.h"/>
+					<F N="../../../components/drivers_nrf/rtc/nrf_drv_rtc_dox_config.h"/>
+				</Folder>
+				<Folder Name="saadc">
+					<F N="../../../components/drivers_nrf/saadc/nrf_drv_saadc.c"/>
+					<F N="../../../components/drivers_nrf/saadc/nrf_drv_saadc.h"/>
+					<F N="../../../components/drivers_nrf/saadc/nrf_drv_saadc_dox_config.h"/>
+				</Folder>
+				<Folder Name="sdio">
+					<Folder Name="config">
+						<F N="../../../components/drivers_nrf/sdio/config/sdio_config.h"/>
+					</Folder>
+					<F N="../../../components/drivers_nrf/sdio/sdio.c"/>
+					<F N="../../../components/drivers_nrf/sdio/sdio.h"/>
+				</Folder>
+				<Folder Name="spi_master">
+					<F N="../../../components/drivers_nrf/spi_master/nrf_drv_spi.c"/>
+					<F N="../../../components/drivers_nrf/spi_master/nrf_drv_spi.h"/>
+					<F N="../../../components/drivers_nrf/spi_master/nrf_drv_spi_dox_config.h"/>
+					<F N="../../../components/drivers_nrf/spi_master/spi_5W_master.c"/>
+					<F N="../../../components/drivers_nrf/spi_master/spi_5W_master.h"/>
+				</Folder>
+				<Folder Name="spi_slave">
+					<F N="../../../components/drivers_nrf/spi_slave/nrf_drv_spis.c"/>
+					<F N="../../../components/drivers_nrf/spi_slave/nrf_drv_spis.h"/>
+					<F N="../../../components/drivers_nrf/spi_slave/nrf_drv_spis_dox_config.h"/>
+				</Folder>
+				<Folder Name="swi">
+					<F N="../../../components/drivers_nrf/swi/nrf_drv_swi.c"/>
+					<F N="../../../components/drivers_nrf/swi/nrf_drv_swi.h"/>
+					<F N="../../../components/drivers_nrf/swi/nrf_drv_swi_dox_config.h"/>
+				</Folder>
+				<Folder Name="systick">
+					<F N="../../../components/drivers_nrf/systick/nrf_drv_systick.c"/>
+					<F N="../../../components/drivers_nrf/systick/nrf_drv_systick.h"/>
+					<F N="../../../components/drivers_nrf/systick/nrf_drv_systick_dox_config.h"/>
+				</Folder>
+				<Folder Name="timer">
+					<F N="../../../components/drivers_nrf/timer/nrf_drv_timer.c"/>
+					<F N="../../../components/drivers_nrf/timer/nrf_drv_timer.h"/>
+					<F N="../../../components/drivers_nrf/timer/nrf_drv_timer_dox_config.h"/>
+				</Folder>
+				<Folder Name="twi_master">
+					<Folder Name="deprecated">
+						<Folder Name="config">
+							<F N="../../../components/drivers_nrf/twi_master/deprecated/config/twi_master_config.h"/>
+						</Folder>
+						<F N="../../../components/drivers_nrf/twi_master/deprecated/twi_hw_master.c"/>
+						<F N="../../../components/drivers_nrf/twi_master/deprecated/twi_master.h"/>
+						<F N="../../../components/drivers_nrf/twi_master/deprecated/twi_sw_master.c"/>
+					</Folder>
+					<F N="../../../components/drivers_nrf/twi_master/nrf_drv_twi.c"/>
+					<F N="../../../components/drivers_nrf/twi_master/nrf_drv_twi.h"/>
+					<F N="../../../components/drivers_nrf/twi_master/nrf_drv_twi_dox_config.h"/>
+				</Folder>
+				<Folder Name="twis_slave">
+					<F N="../../../components/drivers_nrf/twis_slave/nrf_drv_twis.c"/>
+					<F N="../../../components/drivers_nrf/twis_slave/nrf_drv_twis.h"/>
+					<F N="../../../components/drivers_nrf/twis_slave/nrf_drv_twis_dox_config.h"/>
+					<F N="../../../components/drivers_nrf/twis_slave/nrf_drv_twis_inst.def"/>
+				</Folder>
+				<Folder Name="uart">
+					<F N="../../../components/drivers_nrf/uart/nrf_drv_uart.c"/>
+					<F N="../../../components/drivers_nrf/uart/nrf_drv_uart.h"/>
+					<F N="../../../components/drivers_nrf/uart/nrf_drv_uart_dox_config.h"/>
+				</Folder>
+				<Folder Name="usbd">
+					<F N="../../../components/drivers_nrf/usbd/nrf_drv_usbd.c"/>
+					<F N="../../../components/drivers_nrf/usbd/nrf_drv_usbd.h"/>
+					<F N="../../../components/drivers_nrf/usbd/nrf_drv_usbd_dox_config.h"/>
+				</Folder>
+				<Folder Name="wdt">
+					<F N="../../../components/drivers_nrf/wdt/nrf_drv_wdt.c"/>
+					<F N="../../../components/drivers_nrf/wdt/nrf_drv_wdt.h"/>
+					<F N="../../../components/drivers_nrf/wdt/nrf_drv_wdt_dox_config.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="libraries">
+				<Folder Name="atomic">
+					<F N="../../../components/libraries/atomic/nrf_atomic.h"/>
+					<F N="../../../components/libraries/atomic/nrf_atomic_internal.h"/>
+					<F N="../../../components/libraries/atomic/nrf_atomic_sanity_check.h"/>
+				</Folder>
+				<Folder Name="atomic_fifo">
+					<F N="../../../components/libraries/atomic_fifo/app_atfifo.c"/>
+					<F N="../../../components/libraries/atomic_fifo/app_atfifo.h"/>
+					<F N="../../../components/libraries/atomic_fifo/app_atfifo_internal.h"/>
+				</Folder>
+				<Folder Name="balloc">
+					<F N="../../../components/libraries/balloc/nrf_balloc.c"/>
+					<F N="../../../components/libraries/balloc/nrf_balloc.h"/>
+					<F N="../../../components/libraries/balloc/nrf_balloc_dox_config.h"/>
+				</Folder>
+				<Folder Name="block_dev">
+					<Folder Name="empty">
+						<F N="../../../components/libraries/block_dev/empty/nrf_block_dev_empty.c"/>
+						<F N="../../../components/libraries/block_dev/empty/nrf_block_dev_empty.h"/>
+					</Folder>
+					<Folder Name="qspi">
+						<F N="../../../components/libraries/block_dev/qspi/nrf_block_dev_qspi.c"/>
+						<F N="../../../components/libraries/block_dev/qspi/nrf_block_dev_qspi.h"/>
+						<F N="../../../components/libraries/block_dev/qspi/nrf_serial_flash_params.c"/>
+						<F N="../../../components/libraries/block_dev/qspi/nrf_serial_flash_params.h"/>
+					</Folder>
+					<Folder Name="ram">
+						<F N="../../../components/libraries/block_dev/ram/nrf_block_dev_ram.c"/>
+						<F N="../../../components/libraries/block_dev/ram/nrf_block_dev_ram.h"/>
+					</Folder>
+					<Folder Name="sdc">
+						<F N="../../../components/libraries/block_dev/sdc/nrf_block_dev_sdc.c"/>
+						<F N="../../../components/libraries/block_dev/sdc/nrf_block_dev_sdc.h"/>
+					</Folder>
+					<F N="../../../components/libraries/block_dev/nrf_block_dev.h"/>
+				</Folder>
+				<Folder Name="bootloader">
+					<Folder Name="ble_dfu">
+						<F N="../../../components/libraries/bootloader/ble_dfu/nrf_ble_dfu.c"/>
+						<F N="../../../components/libraries/bootloader/ble_dfu/nrf_ble_dfu.h"/>
+					</Folder>
+					<Folder Name="dfu">
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu.c"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu.h"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_flash.c"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_flash.h"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_mbr.c"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_mbr.h"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_req_handler.h"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_settings.c"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_settings.h"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_transport.c"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_transport.h"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_types.h"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_utils.c"/>
+						<F N="../../../components/libraries/bootloader/dfu/nrf_dfu_utils.h"/>
+					</Folder>
+					<F N="../../../components/libraries/bootloader/nrf_bootloader.c"/>
+					<F N="../../../components/libraries/bootloader/nrf_bootloader.h"/>
+					<F N="../../../components/libraries/bootloader/nrf_bootloader_app_start.c"/>
+					<F N="../../../components/libraries/bootloader/nrf_bootloader_app_start.h"/>
+					<F N="../../../components/libraries/bootloader/nrf_bootloader_info.c"/>
+					<F N="../../../components/libraries/bootloader/nrf_bootloader_info.h"/>
+				</Folder>
+				<Folder Name="bsp">
+					<F N="../../../components/libraries/bsp/bsp.c"/>
+					<F N="../../../components/libraries/bsp/bsp.h"/>
+					<F N="../../../components/libraries/bsp/bsp_btn_ant.c"/>
+					<F N="../../../components/libraries/bsp/bsp_btn_ant.h"/>
+					<F N="../../../components/libraries/bsp/bsp_btn_ble.c"/>
+					<F N="../../../components/libraries/bsp/bsp_btn_ble.h"/>
+					<F N="../../../components/libraries/bsp/bsp_config.h"/>
+					<F N="../../../components/libraries/bsp/bsp_nfc.c"/>
+					<F N="../../../components/libraries/bsp/bsp_nfc.h"/>
+				</Folder>
+				<Folder Name="button">
+					<F N="../../../components/libraries/button/app_button.c"/>
+					<F N="../../../components/libraries/button/app_button.h"/>
+					<F N="../../../components/libraries/button/app_button_dox_config.h"/>
+				</Folder>
+				<Folder Name="crc16">
+					<F N="../../../components/libraries/crc16/crc16.c"/>
+					<F N="../../../components/libraries/crc16/crc16.h"/>
+					<F N="../../../components/libraries/crc16/crc16_dox_config.h"/>
+				</Folder>
+				<Folder Name="crc32">
+					<F N="../../../components/libraries/crc32/crc32.c"/>
+					<F N="../../../components/libraries/crc32/crc32.h"/>
+					<F N="../../../components/libraries/crc32/crc32_dox_config.h"/>
+				</Folder>
+				<Folder Name="crypto">
+					<F N="../../../components/libraries/crypto/nrf_crypto.c"/>
+					<F N="../../../components/libraries/crypto/nrf_crypto.h"/>
+					<F N="../../../components/libraries/crypto/nrf_crypto_svc.c"/>
+				</Folder>
+				<Folder Name="csense">
+					<F N="../../../components/libraries/csense/nrf_csense.c"/>
+					<F N="../../../components/libraries/csense/nrf_csense.h"/>
+					<F N="../../../components/libraries/csense/nrf_csense_dox_config.h"/>
+					<F N="../../../components/libraries/csense/nrf_csense_macros.h"/>
+				</Folder>
+				<Folder Name="csense_drv">
+					<F N="../../../components/libraries/csense_drv/nrf_drv_csense.c"/>
+					<F N="../../../components/libraries/csense_drv/nrf_drv_csense.h"/>
+					<F N="../../../components/libraries/csense_drv/nrf_drv_csense_dox_config.h"/>
+				</Folder>
+				<Folder Name="ecc">
+					<F N="../../../components/libraries/ecc/ecc.c"/>
+					<F N="../../../components/libraries/ecc/ecc.h"/>
+					<F N="../../../components/libraries/ecc/ecc_dox_config.h"/>
+				</Folder>
+				<Folder Name="experimental_eddystone">
+					<F N="../../../components/libraries/experimental_eddystone/es.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_adv.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_adv.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_adv_frame.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_adv_frame.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_adv_timing.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_adv_timing.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_adv_timing_resolver.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_adv_timing_resolver.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_battery_voltage.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_battery_voltage_adc.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_battery_voltage_saadc.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_flash.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_flash.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_gatts.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_gatts.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_security.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_security.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_security_timing.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_security_timing.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_slot.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_slot.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_slot_reg.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_slot_reg.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_tlm.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/es_tlm.h"/>
+					<F N="../../../components/libraries/experimental_eddystone/nrf_ble_es.c"/>
+					<F N="../../../components/libraries/experimental_eddystone/nrf_ble_es.h"/>
+				</Folder>
+				<Folder Name="experimental_section_vars">
+					<F N="../../../components/libraries/experimental_section_vars/section_vars.h"/>
+				</Folder>
+				<Folder Name="fds">
+					<F N="../../../components/libraries/fds/fds.c"/>
+					<F N="../../../components/libraries/fds/fds.h"/>
+					<F N="../../../components/libraries/fds/fds_dox_config.h"/>
+					<F N="../../../components/libraries/fds/fds_internal_defs.h"/>
+				</Folder>
+				<Folder Name="fifo">
+					<F N="../../../components/libraries/fifo/app_fifo.c"/>
+					<F N="../../../components/libraries/fifo/app_fifo.h"/>
+					<F N="../../../components/libraries/fifo/app_fifo_dox_config.h"/>
+				</Folder>
+				<Folder Name="fstorage">
+					<F N="../../../components/libraries/fstorage/fstorage.c"/>
+					<F N="../../../components/libraries/fstorage/fstorage.h"/>
+					<F N="../../../components/libraries/fstorage/fstorage_dox_config.h"/>
+					<F N="../../../components/libraries/fstorage/fstorage_internal_defs.h"/>
+					<F N="../../../components/libraries/fstorage/fstorage_nosd.c"/>
+				</Folder>
+				<Folder Name="gpiote">
+					<F N="../../../components/libraries/gpiote/app_gpiote.c"/>
+					<F N="../../../components/libraries/gpiote/app_gpiote.h"/>
+					<F N="../../../components/libraries/gpiote/app_gpiote_dox_config.h"/>
+				</Folder>
+				<Folder Name="hardfault">
+					<Folder Name="nrf51">
+						<Folder Name="handler">
+							<F N="../../../components/libraries/hardfault/nrf51/handler/hardfault_handler_gcc.c"/>
+							<F N="../../../components/libraries/hardfault/nrf51/handler/hardfault_handler_iar.c"/>
+							<F N="../../../components/libraries/hardfault/nrf51/handler/hardfault_handler_keil.c"/>
+						</Folder>
+					</Folder>
+					<Folder Name="nrf52">
+						<Folder Name="handler">
+							<F N="../../../components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c"/>
+							<F N="../../../components/libraries/hardfault/nrf52/handler/hardfault_handler_iar.c"/>
+							<F N="../../../components/libraries/hardfault/nrf52/handler/hardfault_handler_keil.c"/>
+						</Folder>
+					</Folder>
+					<F N="../../../components/libraries/hardfault/hardfault.h"/>
+					<F N="../../../components/libraries/hardfault/hardfault_default_dox_config.h"/>
+					<F N="../../../components/libraries/hardfault/hardfault_implementation.c"/>
+				</Folder>
+				<Folder Name="hci">
+					<F N="../../../components/libraries/hci/hci_mem_pool.c"/>
+					<F N="../../../components/libraries/hci/hci_mem_pool.h"/>
+					<F N="../../../components/libraries/hci/hci_mem_pool_dox_config.h"/>
+					<F N="../../../components/libraries/hci/hci_slip.c"/>
+					<F N="../../../components/libraries/hci/hci_slip.h"/>
+					<F N="../../../components/libraries/hci/hci_slip_dox_config.h"/>
+					<F N="../../../components/libraries/hci/hci_transport.c"/>
+					<F N="../../../components/libraries/hci/hci_transport.h"/>
+					<F N="../../../components/libraries/hci/hci_transport_dox_config.h"/>
+				</Folder>
+				<Folder Name="ic_info">
+					<F N="../../../components/libraries/ic_info/nrf_ic_info.c"/>
+					<F N="../../../components/libraries/ic_info/nrf_ic_info.h"/>
+				</Folder>
+				<Folder Name="led_softblink">
+					<F N="../../../components/libraries/led_softblink/led_softblink.c"/>
+					<F N="../../../components/libraries/led_softblink/led_softblink.h"/>
+					<F N="../../../components/libraries/led_softblink/led_softblink_dox_config.h"/>
+				</Folder>
+				<Folder Name="log">
+					<Folder Name="src">
+						<F N="../../../components/libraries/log/src/nrf_log_backend_serial.c"/>
+						<F N="../../../components/libraries/log/src/nrf_log_ctrl_internal.h"/>
+						<F N="../../../components/libraries/log/src/nrf_log_frontend.c"/>
+						<F N="../../../components/libraries/log/src/nrf_log_internal.h"/>
+					</Folder>
+					<F N="../../../components/libraries/log/nrf_log.h"/>
+					<F N="../../../components/libraries/log/nrf_log_backend.h"/>
+					<F N="../../../components/libraries/log/nrf_log_backend_dox_config.h"/>
+					<F N="../../../components/libraries/log/nrf_log_ctrl.h"/>
+					<F N="../../../components/libraries/log/nrf_log_dox_config.h"/>
+				</Folder>
+				<Folder Name="low_power_pwm">
+					<F N="../../../components/libraries/low_power_pwm/low_power_pwm.c"/>
+					<F N="../../../components/libraries/low_power_pwm/low_power_pwm.h"/>
+					<F N="../../../components/libraries/low_power_pwm/low_power_pwm_dox_config.h"/>
+				</Folder>
+				<Folder Name="mailbox">
+					<F N="../../../components/libraries/mailbox/app_mailbox.c"/>
+					<F N="../../../components/libraries/mailbox/app_mailbox.h"/>
+					<F N="../../../components/libraries/mailbox/app_mailbox_dox_config.h"/>
+					<F N="../../../components/libraries/mailbox/app_mailbox_local.h"/>
+				</Folder>
+				<Folder Name="mem_manager">
+					<F N="../../../components/libraries/mem_manager/mem_manager.c"/>
+					<F N="../../../components/libraries/mem_manager/mem_manager.h"/>
+					<F N="../../../components/libraries/mem_manager/mem_manager_dox_config.h"/>
+				</Folder>
+				<Folder Name="pwm">
+					<F N="../../../components/libraries/pwm/app_pwm.c"/>
+					<F N="../../../components/libraries/pwm/app_pwm.h"/>
+					<F N="../../../components/libraries/pwm/app_pwm_dox_config.h"/>
+				</Folder>
+				<Folder Name="pwr_mgmt">
+					<F N="../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.c"/>
+					<F N="../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h"/>
+					<F N="../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt_dox_config.h"/>
+				</Folder>
+				<Folder Name="queue">
+					<F N="../../../components/libraries/queue/nrf_queue.c"/>
+					<F N="../../../components/libraries/queue/nrf_queue.h"/>
+					<F N="../../../components/libraries/queue/nrf_queue_dox_config.h"/>
+				</Folder>
+				<Folder Name="scheduler">
+					<F N="../../../components/libraries/scheduler/app_scheduler.c"/>
+					<F N="../../../components/libraries/scheduler/app_scheduler.h"/>
+					<F N="../../../components/libraries/scheduler/app_scheduler_dox_config.h"/>
+					<F N="../../../components/libraries/scheduler/app_scheduler_serconn.c"/>
+				</Folder>
+				<Folder Name="sdcard">
+					<F N="../../../components/libraries/sdcard/app_sdcard.c"/>
+					<F N="../../../components/libraries/sdcard/app_sdcard.h"/>
+					<F N="../../../components/libraries/sdcard/app_sdcard_dox_config.h"/>
+				</Folder>
+				<Folder Name="sensorsim">
+					<F N="../../../components/libraries/sensorsim/sensorsim.c"/>
+					<F N="../../../components/libraries/sensorsim/sensorsim.h"/>
+				</Folder>
+				<Folder Name="sha256">
+					<F N="../../../components/libraries/sha256/sha256.c"/>
+					<F N="../../../components/libraries/sha256/sha256.h"/>
+				</Folder>
+				<Folder Name="simple_timer">
+					<F N="../../../components/libraries/simple_timer/app_simple_timer.c"/>
+					<F N="../../../components/libraries/simple_timer/app_simple_timer.h"/>
+					<F N="../../../components/libraries/simple_timer/app_simple_timer_dox_config.h"/>
+				</Folder>
+				<Folder Name="slip">
+					<F N="../../../components/libraries/slip/slip.c"/>
+					<F N="../../../components/libraries/slip/slip.h"/>
+					<F N="../../../components/libraries/slip/slip_dox_config.h"/>
+				</Folder>
+				<Folder Name="svc">
+					<F N="../../../components/libraries/svc/nrf_svc_function.h"/>
+					<F N="../../../components/libraries/svc/nrf_svc_handler.c"/>
+					<F N="../../../components/libraries/svc/nrf_svci.h"/>
+				</Folder>
+				<Folder Name="timer">
+					<F N="../../../components/libraries/timer/app_timer.c"/>
+					<F N="../../../components/libraries/timer/app_timer.h"/>
+					<F N="../../../components/libraries/timer/app_timer_appsh.c"/>
+					<F N="../../../components/libraries/timer/app_timer_appsh.h"/>
+					<F N="../../../components/libraries/timer/app_timer_ble_gzll.c"/>
+					<F N="../../../components/libraries/timer/app_timer_dox_config.h"/>
+					<F N="../../../components/libraries/timer/app_timer_freertos.c"/>
+					<F N="../../../components/libraries/timer/app_timer_rtx.c"/>
+				</Folder>
+				<Folder Name="twi">
+					<F N="../../../components/libraries/twi/app_twi.c"/>
+					<F N="../../../components/libraries/twi/app_twi.h"/>
+					<F N="../../../components/libraries/twi/app_twi_dox_config.h"/>
+				</Folder>
+				<Folder Name="uart">
+					<F N="../../../components/libraries/uart/app_uart.c"/>
+					<F N="../../../components/libraries/uart/app_uart.h"/>
+					<F N="../../../components/libraries/uart/app_uart_dox_config.h"/>
+					<F N="../../../components/libraries/uart/app_uart_fifo.c"/>
+					<F N="../../../components/libraries/uart/retarget.c"/>
+					<F N="../../../components/libraries/uart/retarget_dox_config.h"/>
+				</Folder>
+				<Folder Name="usbd">
+					<Folder Name="class">
+						<Folder Name="audio">
+							<F N="../../../components/libraries/usbd/class/audio/app_usbd_audio.c"/>
+							<F N="../../../components/libraries/usbd/class/audio/app_usbd_audio.h"/>
+							<F N="../../../components/libraries/usbd/class/audio/app_usbd_audio_desc.h"/>
+							<F N="../../../components/libraries/usbd/class/audio/app_usbd_audio_dox_config.h"/>
+							<F N="../../../components/libraries/usbd/class/audio/app_usbd_audio_internal.h"/>
+							<F N="../../../components/libraries/usbd/class/audio/app_usbd_audio_types.h"/>
+						</Folder>
+						<Folder Name="cdc">
+							<Folder Name="acm">
+								<F N="../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.c"/>
+								<F N="../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.h"/>
+								<F N="../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm_dox_config.h"/>
+								<F N="../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm_internal.h"/>
+							</Folder>
+							<F N="../../../components/libraries/usbd/class/cdc/app_usbd_cdc_desc.h"/>
+							<F N="../../../components/libraries/usbd/class/cdc/app_usbd_cdc_types.h"/>
+						</Folder>
+						<Folder Name="hid">
+							<Folder Name="generic">
+								<F N="../../../components/libraries/usbd/class/hid/generic/app_usbd_hid_generic.c"/>
+								<F N="../../../components/libraries/usbd/class/hid/generic/app_usbd_hid_generic.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/generic/app_usbd_hid_generic_desc.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/generic/app_usbd_hid_generic_dox_config.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/generic/app_usbd_hid_generic_internal.h"/>
+							</Folder>
+							<Folder Name="kbd">
+								<F N="../../../components/libraries/usbd/class/hid/kbd/app_usbd_hid_kbd.c"/>
+								<F N="../../../components/libraries/usbd/class/hid/kbd/app_usbd_hid_kbd.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/kbd/app_usbd_hid_kbd_desc.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/kbd/app_usbd_hid_kbd_dox_config.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/kbd/app_usbd_hid_kbd_internal.h"/>
+							</Folder>
+							<Folder Name="mouse">
+								<F N="../../../components/libraries/usbd/class/hid/mouse/app_usbd_hid_mouse.c"/>
+								<F N="../../../components/libraries/usbd/class/hid/mouse/app_usbd_hid_mouse.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/mouse/app_usbd_hid_mouse_desc.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/mouse/app_usbd_hid_mouse_dox_config.h"/>
+								<F N="../../../components/libraries/usbd/class/hid/mouse/app_usbd_hid_mouse_internal.h"/>
+							</Folder>
+							<F N="../../../components/libraries/usbd/class/hid/app_usbd_hid.c"/>
+							<F N="../../../components/libraries/usbd/class/hid/app_usbd_hid.h"/>
+							<F N="../../../components/libraries/usbd/class/hid/app_usbd_hid_dox_config.h"/>
+							<F N="../../../components/libraries/usbd/class/hid/app_usbd_hid_types.h"/>
+						</Folder>
+						<Folder Name="msc">
+							<F N="../../../components/libraries/usbd/class/msc/app_usbd_msc.c"/>
+							<F N="../../../components/libraries/usbd/class/msc/app_usbd_msc.h"/>
+							<F N="../../../components/libraries/usbd/class/msc/app_usbd_msc_desc.h"/>
+							<F N="../../../components/libraries/usbd/class/msc/app_usbd_msc_dox_config.h"/>
+							<F N="../../../components/libraries/usbd/class/msc/app_usbd_msc_internal.h"/>
+							<F N="../../../components/libraries/usbd/class/msc/app_usbd_msc_scsi.h"/>
+							<F N="../../../components/libraries/usbd/class/msc/app_usbd_msc_types.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="config">
+						<F N="../../../components/libraries/usbd/config/app_usbd_string_config.h"/>
+					</Folder>
+					<F N="../../../components/libraries/usbd/app_usbd.c"/>
+					<F N="../../../components/libraries/usbd/app_usbd.h"/>
+					<F N="../../../components/libraries/usbd/app_usbd_class_base.h"/>
+					<F N="../../../components/libraries/usbd/app_usbd_core.c"/>
+					<F N="../../../components/libraries/usbd/app_usbd_core.h"/>
+					<F N="../../../components/libraries/usbd/app_usbd_descriptor.h"/>
+					<F N="../../../components/libraries/usbd/app_usbd_dox_config.h"/>
+					<F N="../../../components/libraries/usbd/app_usbd_langid.h"/>
+					<F N="../../../components/libraries/usbd/app_usbd_request.h"/>
+					<F N="../../../components/libraries/usbd/app_usbd_string_desc.c"/>
+					<F N="../../../components/libraries/usbd/app_usbd_string_desc.h"/>
+					<F N="../../../components/libraries/usbd/app_usbd_types.h"/>
+				</Folder>
+				<Folder Name="util">
+					<F N="../../../components/libraries/util/app_error.c"/>
+					<F N="../../../components/libraries/util/app_error.h"/>
+					<F N="../../../components/libraries/util/app_error_weak.c"/>
+					<F N="../../../components/libraries/util/app_error_weak.h"/>
+					<F N="../../../components/libraries/util/app_util.h"/>
+					<F N="../../../components/libraries/util/app_util_bds.h"/>
+					<F N="../../../components/libraries/util/app_util_platform.c"/>
+					<F N="../../../components/libraries/util/app_util_platform.h"/>
+					<F N="../../../components/libraries/util/nordic_common.h"/>
+					<F N="../../../components/libraries/util/nrf_assert.c"/>
+					<F N="../../../components/libraries/util/nrf_assert.h"/>
+					<F N="../../../components/libraries/util/nrf_bitmask.h"/>
+					<F N="../../../components/libraries/util/sdk_common.h"/>
+					<F N="../../../components/libraries/util/sdk_errors.c"/>
+					<F N="../../../components/libraries/util/sdk_errors.h"/>
+					<F N="../../../components/libraries/util/sdk_macros.h"/>
+					<F N="../../../components/libraries/util/sdk_mapped_flags.c"/>
+					<F N="../../../components/libraries/util/sdk_mapped_flags.h"/>
+					<F N="../../../components/libraries/util/sdk_os.h"/>
+					<F N="../../../components/libraries/util/sdk_resources.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="nfc">
+				<Folder Name="experimental_t4t_lib">
+					<Folder Name="hal_t4t">
+						<F N="../../../components/nfc/experimental_t4t_lib/hal_t4t/hal_nfc_t4t.c"/>
+						<F N="../../../components/nfc/experimental_t4t_lib/hal_t4t/hal_nfc_t4t.h"/>
+						<F N="../../../components/nfc/experimental_t4t_lib/hal_t4t/nfc_t4t_hal_dox_config.h"/>
+					</Folder>
+					<F N="../../../components/nfc/experimental_t4t_lib/nfc_fixes.h"/>
+					<F N="../../../components/nfc/experimental_t4t_lib/nfc_t4t_lib.h"/>
+					<F N="../../../components/nfc/experimental_t4t_lib/nfc_t4t_lib_keil.lib"/>
+				</Folder>
+				<Folder Name="ndef">
+					<Folder Name="connection_handover">
+						<Folder Name="ac_rec">
+							<F N="../../../components/nfc/ndef/connection_handover/ac_rec/nfc_ac_rec.c"/>
+							<F N="../../../components/nfc/ndef/connection_handover/ac_rec/nfc_ac_rec.h"/>
+						</Folder>
+						<Folder Name="ble_oob_advdata">
+							<F N="../../../components/nfc/ndef/connection_handover/ble_oob_advdata/nfc_ble_oob_advdata.c"/>
+							<F N="../../../components/nfc/ndef/connection_handover/ble_oob_advdata/nfc_ble_oob_advdata.h"/>
+						</Folder>
+						<Folder Name="ble_pair_msg">
+							<F N="../../../components/nfc/ndef/connection_handover/ble_pair_msg/nfc_ble_pair_msg.c"/>
+							<F N="../../../components/nfc/ndef/connection_handover/ble_pair_msg/nfc_ble_pair_msg.h"/>
+						</Folder>
+						<Folder Name="common">
+							<F N="../../../components/nfc/ndef/connection_handover/common/nfc_ble_pair_common.c"/>
+							<F N="../../../components/nfc/ndef/connection_handover/common/nfc_ble_pair_common.h"/>
+						</Folder>
+						<Folder Name="ep_oob_rec">
+							<F N="../../../components/nfc/ndef/connection_handover/ep_oob_rec/nfc_ep_oob_rec.c"/>
+							<F N="../../../components/nfc/ndef/connection_handover/ep_oob_rec/nfc_ep_oob_rec.h"/>
+						</Folder>
+						<Folder Name="hs_rec">
+							<F N="../../../components/nfc/ndef/connection_handover/hs_rec/nfc_hs_rec.c"/>
+							<F N="../../../components/nfc/ndef/connection_handover/hs_rec/nfc_hs_rec.h"/>
+						</Folder>
+						<Folder Name="le_oob_rec">
+							<F N="../../../components/nfc/ndef/connection_handover/le_oob_rec/nfc_le_oob_rec.c"/>
+							<F N="../../../components/nfc/ndef/connection_handover/le_oob_rec/nfc_le_oob_rec.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="generic">
+						<Folder Name="message">
+							<F N="../../../components/nfc/ndef/generic/message/nfc_ndef_msg.c"/>
+							<F N="../../../components/nfc/ndef/generic/message/nfc_ndef_msg.h"/>
+							<F N="../../../components/nfc/ndef/generic/message/nfc_ndef_msg_dox_config.h"/>
+						</Folder>
+						<Folder Name="record">
+							<F N="../../../components/nfc/ndef/generic/record/nfc_ndef_record.c"/>
+							<F N="../../../components/nfc/ndef/generic/record/nfc_ndef_record.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="launchapp">
+						<F N="../../../components/nfc/ndef/launchapp/nfc_launchapp_msg.c"/>
+						<F N="../../../components/nfc/ndef/launchapp/nfc_launchapp_msg.h"/>
+						<F N="../../../components/nfc/ndef/launchapp/nfc_launchapp_rec.c"/>
+						<F N="../../../components/nfc/ndef/launchapp/nfc_launchapp_rec.h"/>
+					</Folder>
+					<Folder Name="parser">
+						<Folder Name="message">
+							<F N="../../../components/nfc/ndef/parser/message/nfc_ndef_msg_parser.c"/>
+							<F N="../../../components/nfc/ndef/parser/message/nfc_ndef_msg_parser.h"/>
+							<F N="../../../components/nfc/ndef/parser/message/nfc_ndef_msg_parser_dox_config.h"/>
+							<F N="../../../components/nfc/ndef/parser/message/nfc_ndef_msg_parser_local.c"/>
+							<F N="../../../components/nfc/ndef/parser/message/nfc_ndef_msg_parser_local.h"/>
+						</Folder>
+						<Folder Name="record">
+							<F N="../../../components/nfc/ndef/parser/record/nfc_ndef_record_parser.c"/>
+							<F N="../../../components/nfc/ndef/parser/record/nfc_ndef_record_parser.h"/>
+							<F N="../../../components/nfc/ndef/parser/record/nfc_ndef_record_parser_dox_config.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="text">
+						<F N="../../../components/nfc/ndef/text/nfc_text_rec.c"/>
+						<F N="../../../components/nfc/ndef/text/nfc_text_rec.h"/>
+					</Folder>
+					<Folder Name="uri">
+						<F N="../../../components/nfc/ndef/uri/nfc_uri_msg.c"/>
+						<F N="../../../components/nfc/ndef/uri/nfc_uri_msg.h"/>
+						<F N="../../../components/nfc/ndef/uri/nfc_uri_rec.c"/>
+						<F N="../../../components/nfc/ndef/uri/nfc_uri_rec.h"/>
+					</Folder>
+				</Folder>
+				<Folder Name="t2t_lib">
+					<Folder Name="hal_t2t">
+						<F N="../../../components/nfc/t2t_lib/hal_t2t/hal_nfc_t2t.c"/>
+						<F N="../../../components/nfc/t2t_lib/hal_t2t/hal_nfc_t2t.h"/>
+						<F N="../../../components/nfc/t2t_lib/hal_t2t/nfc_t2t_hal_dox_config.h"/>
+					</Folder>
+					<F N="../../../components/nfc/t2t_lib/nfc_fixes.h"/>
+					<F N="../../../components/nfc/t2t_lib/nfc_t2t_lib.h"/>
+					<F N="../../../components/nfc/t2t_lib/nfc_t2t_lib_keil.lib"/>
+				</Folder>
+				<Folder Name="t2t_parser">
+					<F N="../../../components/nfc/t2t_parser/nfc_t2t_parser.c"/>
+					<F N="../../../components/nfc/t2t_parser/nfc_t2t_parser.h"/>
+					<F N="../../../components/nfc/t2t_parser/nfc_tlv_block.h"/>
+					<F N="../../../components/nfc/t2t_parser/nfc_type_2_tag_parser_dox_config.h"/>
+				</Folder>
+				<Folder Name="t4t_parser">
+					<Folder Name="apdu">
+						<F N="../../../components/nfc/t4t_parser/apdu/nfc_t4t_apdu.c"/>
+						<F N="../../../components/nfc/t4t_parser/apdu/nfc_t4t_apdu.h"/>
+						<F N="../../../components/nfc/t4t_parser/apdu/nfc_t4t_apdu_dox_config.h"/>
+					</Folder>
+					<Folder Name="cc_file">
+						<F N="../../../components/nfc/t4t_parser/cc_file/nfc_t4t_cc_file.c"/>
+						<F N="../../../components/nfc/t4t_parser/cc_file/nfc_t4t_cc_file.h"/>
+						<F N="../../../components/nfc/t4t_parser/cc_file/nfc_t4t_cc_file_dox_config.h"/>
+					</Folder>
+					<Folder Name="hl_detection_procedure">
+						<F N="../../../components/nfc/t4t_parser/hl_detection_procedure/nfc_t4t_hl_detection_procedures.c"/>
+						<F N="../../../components/nfc/t4t_parser/hl_detection_procedure/nfc_t4t_hl_detection_procedures.h"/>
+						<F N="../../../components/nfc/t4t_parser/hl_detection_procedure/nfc_t4t_hl_detection_procedures_dox_config.h"/>
+					</Folder>
+					<Folder Name="tlv">
+						<F N="../../../components/nfc/t4t_parser/tlv/nfc_t4t_tlv_block.c"/>
+						<F N="../../../components/nfc/t4t_parser/tlv/nfc_t4t_tlv_block.h"/>
+						<F N="../../../components/nfc/t4t_parser/tlv/nfc_t4t_tlv_block_dox_config.h"/>
+					</Folder>
+				</Folder>
+			</Folder>
+			<Folder Name="oled">
+				<F N="../../../components/oled/bmp.h"/>
+				<F N="../../../components/oled/oled.c"/>
+				<F N="../../../components/oled/oled.h"/>
+				<F N="../../../components/oled/oledfont.c"/>
+				<F N="../../../components/oled/OLEDFONT.h"/>
+			</Folder>
+			<Folder Name="proprietary_rf">
+				<Folder Name="esb">
+					<F N="../../../components/proprietary_rf/esb/nrf_esb.c"/>
+					<F N="../../../components/proprietary_rf/esb/nrf_esb.h"/>
+					<F N="../../../components/proprietary_rf/esb/nrf_esb_error_codes.h"/>
+					<F N="../../../components/proprietary_rf/esb/nrf_esb_resources.h"/>
+				</Folder>
+				<Folder Name="gzll">
+					<Folder Name="arm">
+						<F N="../../../components/proprietary_rf/gzll/arm/gzll_nrf51_arm.lib"/>
+						<F N="../../../components/proprietary_rf/gzll/arm/gzll_nrf51_sd_resources_arm.lib"/>
+						<F N="../../../components/proprietary_rf/gzll/arm/gzll_nrf52_arm.lib"/>
+						<F N="../../../components/proprietary_rf/gzll/arm/gzll_nrf52_sd_resources_arm.lib"/>
+					</Folder>
+					<Folder Name="config">
+						<F N="../../../components/proprietary_rf/gzll/config/nrf_gzp_config.h"/>
+					</Folder>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzll.h"/>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzll_constants.h"/>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzll_error.h"/>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzll_resources.h"/>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzp.c"/>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzp.h"/>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzp_device.c"/>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzp_host.c"/>
+					<F N="../../../components/proprietary_rf/gzll/nrf_gzp_host_nrf5x.c"/>
+				</Folder>
+			</Folder>
+			<Folder Name="serialization">
+				<Folder Name="application">
+					<Folder Name="codecs">
+						<Folder Name="common">
+							<F N="../../../components/serialization/application/codecs/common/ble_dtm_app.c"/>
+							<F N="../../../components/serialization/application/codecs/common/ble_dtm_app.h"/>
+							<F N="../../../components/serialization/application/codecs/common/ble_dtm_init.c"/>
+							<F N="../../../components/serialization/application/codecs/common/conn_systemreset.c"/>
+							<F N="../../../components/serialization/application/codecs/common/conn_systemreset.h"/>
+						</Folder>
+						<Folder Name="s132">
+							<Folder Name="middleware">
+								<F N="../../../components/serialization/application/codecs/s132/middleware/app_mw_ble.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/middleware/app_mw_ble_gap.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/middleware/app_mw_ble_gattc.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/middleware/app_mw_ble_gatts.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/middleware/app_mw_ble_l2cap.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/middleware/app_mw_nrf_soc.c"/>
+							</Folder>
+							<Folder Name="serializers">
+								<F N="../../../components/serialization/application/codecs/s132/serializers/app_ble_gap_sec_keys.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/app_ble_gap_sec_keys.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/app_ble_user_mem.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/app_ble_user_mem.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_event.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_evt_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_evt_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gap_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gap_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gap_evt_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gap_evt_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gattc_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gattc_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gattc_evt_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gattc_evt_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gatts_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gatts_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gatts_evt_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_gatts_evt_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_l2cap_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_l2cap_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_l2cap_evt_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/ble_l2cap_evt_app.h"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/nrf_soc_app.c"/>
+								<F N="../../../components/serialization/application/codecs/s132/serializers/nrf_soc_app.h"/>
+							</Folder>
+						</Folder>
+					</Folder>
+					<Folder Name="hal">
+						<F N="../../../components/serialization/application/hal/arm_startup_nrf51.s"/>
+						<F N="../../../components/serialization/application/hal/ser_app_hal.h"/>
+						<F N="../../../components/serialization/application/hal/ser_app_hal_nrf5x.c"/>
+						<F N="../../../components/serialization/application/hal/ser_app_power_system_off.c"/>
+						<F N="../../../components/serialization/application/hal/ser_app_power_system_off.h"/>
+					</Folder>
+					<Folder Name="transport">
+						<F N="../../../components/serialization/application/transport/ser_sd_transport.c"/>
+						<F N="../../../components/serialization/application/transport/ser_sd_transport.h"/>
+						<F N="../../../components/serialization/application/transport/ser_softdevice_handler.c"/>
+						<F N="../../../components/serialization/application/transport/ser_softdevice_handler.h"/>
+					</Folder>
+				</Folder>
+				<Folder Name="common">
+					<Folder Name="struct_ser">
+						<Folder Name="s132">
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_gap_struct_serialization.c"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_gap_struct_serialization.h"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_gatt_struct_serialization.c"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_gatt_struct_serialization.h"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_gattc_struct_serialization.c"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_gattc_struct_serialization.h"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_gatts_struct_serialization.c"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_gatts_struct_serialization.h"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_struct_serialization.c"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/ble_struct_serialization.h"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/nrf_soc_struct_serialization.c"/>
+							<F N="../../../components/serialization/common/struct_ser/s132/nrf_soc_struct_serialization.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="transport">
+						<Folder Name="ser_phy">
+							<Folder Name="config">
+								<F N="../../../components/serialization/common/transport/ser_phy/config/ser_config_5W_app.h"/>
+								<F N="../../../components/serialization/common/transport/ser_phy/config/ser_phy_config_app.h"/>
+								<F N="../../../components/serialization/common/transport/ser_phy/config/ser_phy_config_conn.h"/>
+								<F N="../../../components/serialization/common/transport/ser_phy/config/ser_phy_debug_app.h"/>
+								<F N="../../../components/serialization/common/transport/ser_phy/config/ser_phy_debug_conn.h"/>
+							</Folder>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy.c"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy.h"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_hci.c"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_hci.h"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_hci_slip.c"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_nohci.c"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_spi_5W_master.c"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_spi_5W_slave.c"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_spi_master.c"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_spi_slave.c"/>
+							<F N="../../../components/serialization/common/transport/ser_phy/ser_phy_uart.c"/>
+						</Folder>
+						<F N="../../../components/serialization/common/transport/dtm_uart_params.h"/>
+						<F N="../../../components/serialization/common/transport/ser_hal_transport.c"/>
+						<F N="../../../components/serialization/common/transport/ser_hal_transport.h"/>
+						<F N="../../../components/serialization/common/transport/ser_phy_debug_comm.h"/>
+					</Folder>
+					<F N="../../../components/serialization/common/ble_serialization.c"/>
+					<F N="../../../components/serialization/common/ble_serialization.h"/>
+					<F N="../../../components/serialization/common/cond_field_serialization.c"/>
+					<F N="../../../components/serialization/common/cond_field_serialization.h"/>
+					<F N="../../../components/serialization/common/ser_config.h"/>
+					<F N="../../../components/serialization/common/ser_dbg_sd_str.c"/>
+					<F N="../../../components/serialization/common/ser_dbg_sd_str.h"/>
+				</Folder>
+				<Folder Name="connectivity">
+					<Folder Name="codecs">
+						<Folder Name="common">
+							<F N="../../../components/serialization/connectivity/codecs/common/ble_dtm_conn.h"/>
+							<F N="../../../components/serialization/connectivity/codecs/common/ble_dtm_init.c"/>
+							<F N="../../../components/serialization/connectivity/codecs/common/conn_mw.c"/>
+							<F N="../../../components/serialization/connectivity/codecs/common/conn_mw.h"/>
+						</Folder>
+						<Folder Name="s132">
+							<Folder Name="middleware">
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble_gap.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble_gap.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble_gattc.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble_gattc.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble_gatts.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble_gatts.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble_l2cap.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_ble_l2cap.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_items.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_nrf_soc.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/middleware/conn_mw_nrf_soc.h"/>
+							</Folder>
+							<Folder Name="serializers">
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_event_enc.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_evt_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_evt_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gap_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gap_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gap_evt_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gap_evt_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gattc_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gattc_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gattc_evt_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gattc_evt_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gatts_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gatts_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gatts_evt_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_gatts_evt_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_l2cap_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_l2cap_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_l2cap_evt_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/ble_l2cap_evt_conn.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/conn_ble_gap_sec_keys.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/conn_ble_gap_sec_keys.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/conn_ble_user_mem.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/conn_ble_user_mem.h"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/nrf_soc_conn.c"/>
+								<F N="../../../components/serialization/connectivity/codecs/s132/serializers/nrf_soc_conn.h"/>
+							</Folder>
+						</Folder>
+					</Folder>
+					<Folder Name="hal">
+						<F N="../../../components/serialization/connectivity/hal/dtm_uart.c"/>
+						<F N="../../../components/serialization/connectivity/hal/dtm_uart.h"/>
+					</Folder>
+					<Folder Name="startup">
+						<Folder Name="arm">
+							<F N="../../../components/serialization/connectivity/startup/arm/arm_startup_nrf51.s"/>
+						</Folder>
+					</Folder>
+					<F N="../../../components/serialization/connectivity/pstorage_platform.h"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_cmd_decoder.c"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_cmd_decoder.h"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_dtm_cmd_decoder.c"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_dtm_cmd_decoder.h"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_error_handling.c"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_event_encoder.c"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_event_encoder.h"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_handlers.c"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_handlers.h"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_pkt_decoder.c"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_pkt_decoder.h"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_reset_cmd_decoder.c"/>
+					<F N="../../../components/serialization/connectivity/ser_conn_reset_cmd_decoder.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="softdevice">
+				<Folder Name="common">
+					<Folder Name="softdevice_handler">
+						<F N="../../../components/softdevice/common/softdevice_handler/ant_stack_handler_types.h"/>
+						<F N="../../../components/softdevice/common/softdevice_handler/app_ram_base.h"/>
+						<F N="../../../components/softdevice/common/softdevice_handler/ble_stack_handler_types.h"/>
+						<F N="../../../components/softdevice/common/softdevice_handler/softdevice_handler.c"/>
+						<F N="../../../components/softdevice/common/softdevice_handler/softdevice_handler.h"/>
+						<F N="../../../components/softdevice/common/softdevice_handler/softdevice_handler_appsh.c"/>
+						<F N="../../../components/softdevice/common/softdevice_handler/softdevice_handler_appsh.h"/>
+					</Folder>
+				</Folder>
+				<Folder Name="s130">
+					<Folder Name="doc">
+						<F N="../../../components/softdevice/s130/doc/s130_nrf51822_2.0.1_readme.txt"/>
+						<F N="../../../components/softdevice/s130/doc/s130_nrf51822_2.0.1_releasenotes.pdf"/>
+					</Folder>
+					<Folder Name="headers">
+						<Folder Name="nrf51">
+							<F N="../../../components/softdevice/s130/headers/nrf51/nrf_mbr.h"/>
+						</Folder>
+						<F N="../../../components/softdevice/s130/headers/ble.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_err.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_gap.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_gatt.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_gattc.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_gatts.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_hci.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_l2cap.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_ranges.h"/>
+						<F N="../../../components/softdevice/s130/headers/ble_types.h"/>
+						<F N="../../../components/softdevice/s130/headers/nrf_error.h"/>
+						<F N="../../../components/softdevice/s130/headers/nrf_error_sdm.h"/>
+						<F N="../../../components/softdevice/s130/headers/nrf_error_soc.h"/>
+						<F N="../../../components/softdevice/s130/headers/nrf_nvic.h"/>
+						<F N="../../../components/softdevice/s130/headers/nrf_sd_def.h"/>
+						<F N="../../../components/softdevice/s130/headers/nrf_sdm.h"/>
+						<F N="../../../components/softdevice/s130/headers/nrf_soc.h"/>
+						<F N="../../../components/softdevice/s130/headers/nrf_svc.h"/>
+					</Folder>
+					<Folder Name="toolchain">
+						<Folder Name="armgcc">
+							<F N="../../../components/softdevice/s130/toolchain/armgcc/armgcc_s130_nrf51422_xxaa.ld"/>
+							<F N="../../../components/softdevice/s130/toolchain/armgcc/armgcc_s130_nrf51422_xxac.ld"/>
+							<F N="../../../components/softdevice/s130/toolchain/armgcc/armgcc_s130_nrf51822_xxaa.ld"/>
+							<F N="../../../components/softdevice/s130/toolchain/armgcc/armgcc_s130_nrf51822_xxab.ld"/>
+						</Folder>
+						<Folder Name="iar">
+							<F N="../../../components/softdevice/s130/toolchain/iar/iar_s130_nrf51422_xxaa.icf"/>
+							<F N="../../../components/softdevice/s130/toolchain/iar/iar_s130_nrf51422_xxac.icf"/>
+							<F N="../../../components/softdevice/s130/toolchain/iar/iar_s130_nrf51822_xxaa.icf"/>
+							<F N="../../../components/softdevice/s130/toolchain/iar/iar_s130_nrf51822_xxab.icf"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="s132">
+					<Folder Name="doc">
+						<F N="../../../components/softdevice/s132/doc/s132_nrf52_3.0.0_licence_agreement.txt"/>
+						<F N="../../../components/softdevice/s132/doc/s132_nrf52_3.0.0_readme.txt"/>
+					</Folder>
+					<Folder Name="headers">
+						<Folder Name="nrf52">
+							<F N="../../../components/softdevice/s132/headers/nrf52/nrf_mbr.h"/>
+						</Folder>
+						<F N="../../../components/softdevice/s132/headers/ble.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_err.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_gap.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_gatt.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_gattc.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_gatts.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_hci.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_l2cap.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_ranges.h"/>
+						<F N="../../../components/softdevice/s132/headers/ble_types.h"/>
+						<F N="../../../components/softdevice/s132/headers/nrf_error.h"/>
+						<F N="../../../components/softdevice/s132/headers/nrf_error_sdm.h"/>
+						<F N="../../../components/softdevice/s132/headers/nrf_error_soc.h"/>
+						<F N="../../../components/softdevice/s132/headers/nrf_nvic.h"/>
+						<F N="../../../components/softdevice/s132/headers/nrf_sd_def.h"/>
+						<F N="../../../components/softdevice/s132/headers/nrf_sdm.h"/>
+						<F N="../../../components/softdevice/s132/headers/nrf_soc.h"/>
+						<F N="../../../components/softdevice/s132/headers/nrf_svc.h"/>
+					</Folder>
+					<Folder Name="hex">
+						<F N="../../../components/softdevice/s132/hex/s132_nrf52_3.0.0_softdevice.hex"/>
+					</Folder>
+					<Folder Name="toolchain">
+						<Folder Name="armgcc">
+							<F N="../../../components/softdevice/s132/toolchain/armgcc/armgcc_s132_nrf52832_xxaa.ld"/>
+						</Folder>
+						<Folder Name="iar">
+							<F N="../../../components/softdevice/s132/toolchain/iar/iar_s132_nrf52832_xxaa.icf"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="s212">
+					<Folder Name="headers">
+						<F N="../../../components/softdevice/s212/headers/nrf_sd_def.h"/>
+					</Folder>
+					<Folder Name="toolchain">
+						<Folder Name="armgcc">
+							<F N="../../../components/softdevice/s212/toolchain/armgcc/armgcc_s212_nrf52832_xxaa.ld"/>
+						</Folder>
+						<Folder Name="iar">
+							<F N="../../../components/softdevice/s212/toolchain/iar/iar_s212_nrf52832_xxaa.icf"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="s332">
+					<Folder Name="headers">
+						<F N="../../../components/softdevice/s332/headers/nrf_sd_def.h"/>
+					</Folder>
+					<Folder Name="toolchain">
+						<Folder Name="armgcc">
+							<F N="../../../components/softdevice/s332/toolchain/armgcc/armgcc_s332_nrf52832_xxaa.ld"/>
+						</Folder>
+						<Folder Name="iar">
+							<F N="../../../components/softdevice/s332/toolchain/iar/iar_s332_nrf52832_xxaa.icf"/>
+						</Folder>
+					</Folder>
+				</Folder>
+			</Folder>
+			<Folder Name="toolchain">
+				<Folder Name="arm">
+					<F N="../../../components/toolchain/arm/arm_startup_nrf51.s"/>
+					<F N="../../../components/toolchain/arm/arm_startup_nrf52.s"/>
+					<F N="../../../components/toolchain/arm/arm_startup_nrf52840.s"/>
+					<F N="../../../components/toolchain/arm/uicr_config.h"/>
+				</Folder>
+				<Folder Name="cmsis">
+					<Folder Name="dsp">
+						<Folder Name="ARM">
+							<F N="../../../components/toolchain/cmsis/dsp/ARM/arm_cortexM4l_math.lib"/>
+							<F N="../../../components/toolchain/cmsis/dsp/ARM/arm_cortexM4lf_math.lib"/>
+						</Folder>
+						<F N="../../../components/toolchain/cmsis/dsp/license.txt"/>
+					</Folder>
+					<Folder Name="include">
+						<F N="../../../components/toolchain/cmsis/include/arm_common_tables.h"/>
+						<F N="../../../components/toolchain/cmsis/include/arm_const_structs.h"/>
+						<F N="../../../components/toolchain/cmsis/include/arm_math.h"/>
+						<F N="../../../components/toolchain/cmsis/include/cmsis_armcc.h"/>
+						<F N="../../../components/toolchain/cmsis/include/cmsis_armcc_V6.h"/>
+						<F N="../../../components/toolchain/cmsis/include/cmsis_gcc.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_cm0.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_cm0plus.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_cm3.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_cm4.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_cm7.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_cmFunc.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_cmInstr.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_cmSimd.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_sc000.h"/>
+						<F N="../../../components/toolchain/cmsis/include/core_sc300.h"/>
+					</Folder>
+				</Folder>
+				<Folder Name="gcc">
+					<F
+						N="../../../components/toolchain/gcc/file_list.mk"
+						Type="Makefile"/>
+					<F N="../../../components/toolchain/gcc/gcc_nrf51_common.ld"/>
+					<F N="../../../components/toolchain/gcc/gcc_startup_nrf51.S"/>
+					<F N="../../../components/toolchain/gcc/gcc_startup_nrf52.S"/>
+					<F N="../../../components/toolchain/gcc/gcc_startup_nrf52840.S"/>
+					<F
+						N="../../../components/toolchain/gcc/Makefile.common"
+						Type="Makefile"/>
+					<F
+						N="../../../components/toolchain/gcc/Makefile.posix"
+						Type="Makefile"/>
+					<F
+						N="../../../components/toolchain/gcc/Makefile.windows"
+						Type="Makefile"/>
+					<F N="../../../components/toolchain/gcc/nrf51_common.ld"/>
+					<F N="../../../components/toolchain/gcc/nrf51_xxaa.ld"/>
+					<F N="../../../components/toolchain/gcc/nrf51_xxab.ld"/>
+					<F N="../../../components/toolchain/gcc/nrf51_xxac.ld"/>
+					<F N="../../../components/toolchain/gcc/nrf52840_xxaa.ld"/>
+					<F N="../../../components/toolchain/gcc/nrf52_common.ld"/>
+					<F N="../../../components/toolchain/gcc/nrf52_xxaa.ld"/>
+					<F N="../../../components/toolchain/gcc/nrf5x_common.ld"/>
+				</Folder>
+				<Folder Name="iar">
+					<F N="../../../components/toolchain/iar/iar_nrf51_blank_xxaa.icf"/>
+					<F N="../../../components/toolchain/iar/iar_nrf51_blank_xxac.icf"/>
+					<F N="../../../components/toolchain/iar/iar_startup_nrf51.s"/>
+					<F N="../../../components/toolchain/iar/iar_startup_nrf52.s"/>
+					<F N="../../../components/toolchain/iar/iar_startup_nrf52840.s"/>
+				</Folder>
+				<F N="../../../components/toolchain/system_nrf51.c"/>
+				<F N="../../../components/toolchain/system_nrf51.h"/>
+				<F N="../../../components/toolchain/system_nrf51422.c"/>
+				<F N="../../../components/toolchain/system_nrf52.c"/>
+				<F N="../../../components/toolchain/system_nrf52.h"/>
+				<F N="../../../components/toolchain/system_nrf52840.c"/>
+				<F N="../../../components/toolchain/system_nrf52840.h"/>
+			</Folder>
+			<F N="../../../components/sdk_validation.h"/>
+		</Folder>
+		<Folder Name="../../../external">
+			<Folder Name="freertos">
+				<Folder Name="config">
+					<F N="../../../external/freertos/config/FreeRTOSConfig.h"/>
+				</Folder>
+				<Folder Name="license">
+					<F N="../../../external/freertos/license/license.txt"/>
+				</Folder>
+				<Folder Name="portable">
+					<Folder Name="ARM">
+						<Folder Name="nrf51">
+							<F N="../../../external/freertos/portable/ARM/nrf51/port.c"/>
+							<F N="../../../external/freertos/portable/ARM/nrf51/portmacro.h"/>
+						</Folder>
+						<Folder Name="nrf52">
+							<F N="../../../external/freertos/portable/ARM/nrf52/port.c"/>
+							<F N="../../../external/freertos/portable/ARM/nrf52/portmacro.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="CMSIS">
+						<Folder Name="nrf51">
+							<F N="../../../external/freertos/portable/CMSIS/nrf51/port_cmsis.c"/>
+							<F N="../../../external/freertos/portable/CMSIS/nrf51/port_cmsis_systick.c"/>
+							<F N="../../../external/freertos/portable/CMSIS/nrf51/portmacro_cmsis.h"/>
+						</Folder>
+						<Folder Name="nrf52">
+							<F N="../../../external/freertos/portable/CMSIS/nrf52/port_cmsis.c"/>
+							<F N="../../../external/freertos/portable/CMSIS/nrf52/port_cmsis_systick.c"/>
+							<F N="../../../external/freertos/portable/CMSIS/nrf52/portmacro_cmsis.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="GCC">
+						<Folder Name="nrf51">
+							<F N="../../../external/freertos/portable/GCC/nrf51/port.c"/>
+							<F N="../../../external/freertos/portable/GCC/nrf51/portmacro.h"/>
+						</Folder>
+						<Folder Name="nrf52">
+							<F N="../../../external/freertos/portable/GCC/nrf52/port.c"/>
+							<F N="../../../external/freertos/portable/GCC/nrf52/portmacro.h"/>
+						</Folder>
+					</Folder>
+					<Folder Name="IAR">
+						<Folder Name="nrf51">
+							<F N="../../../external/freertos/portable/IAR/nrf51/port.c"/>
+							<F N="../../../external/freertos/portable/IAR/nrf51/portmacro.h"/>
+						</Folder>
+						<Folder Name="nrf52">
+							<F N="../../../external/freertos/portable/IAR/nrf52/port.c"/>
+							<F N="../../../external/freertos/portable/IAR/nrf52/portmacro.h"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="source">
+					<Folder Name="include">
+						<F N="../../../external/freertos/source/include/croutine.h"/>
+						<F N="../../../external/freertos/source/include/deprecated_definitions.h"/>
+						<F N="../../../external/freertos/source/include/event_groups.h"/>
+						<F N="../../../external/freertos/source/include/FreeRTOS.h"/>
+						<F N="../../../external/freertos/source/include/list.h"/>
+						<F N="../../../external/freertos/source/include/mpu_wrappers.h"/>
+						<F N="../../../external/freertos/source/include/portable.h"/>
+						<F N="../../../external/freertos/source/include/projdefs.h"/>
+						<F N="../../../external/freertos/source/include/queue.h"/>
+						<F N="../../../external/freertos/source/include/semphr.h"/>
+						<F N="../../../external/freertos/source/include/StackMacros.h"/>
+						<F N="../../../external/freertos/source/include/stdint.readme"/>
+						<F N="../../../external/freertos/source/include/task.h"/>
+						<F N="../../../external/freertos/source/include/timers.h"/>
+					</Folder>
+					<Folder Name="portable">
+						<Folder Name="MemMang">
+							<F N="../../../external/freertos/source/portable/MemMang/heap_1.c"/>
+							<F N="../../../external/freertos/source/portable/MemMang/heap_2.c"/>
+							<F N="../../../external/freertos/source/portable/MemMang/heap_3.c"/>
+							<F N="../../../external/freertos/source/portable/MemMang/heap_4.c"/>
+							<F N="../../../external/freertos/source/portable/MemMang/heap_5.c"/>
+						</Folder>
+						<F N="../../../external/freertos/source/portable/readme.txt"/>
+					</Folder>
+					<F N="../../../external/freertos/source/croutine.c"/>
+					<F N="../../../external/freertos/source/event_groups.c"/>
+					<F N="../../../external/freertos/source/list.c"/>
+					<F N="../../../external/freertos/source/queue.c"/>
+					<F N="../../../external/freertos/source/readme.txt"/>
+					<F N="../../../external/freertos/source/tasks.c"/>
+					<F N="../../../external/freertos/source/timers.c"/>
+				</Folder>
+				<F N="../../../external/freertos/readme.txt"/>
+			</Folder>
+			<Folder Name="segger_rtt">
+				<F N="../../../external/segger_rtt/RTT_Syscalls_GCC.c"/>
+				<F N="../../../external/segger_rtt/RTT_Syscalls_IAR.c"/>
+				<F N="../../../external/segger_rtt/RTT_Syscalls_KEIL.c"/>
+				<F N="../../../external/segger_rtt/SEGGER_RTT.c"/>
+				<F N="../../../external/segger_rtt/SEGGER_RTT.h"/>
+				<F N="../../../external/segger_rtt/SEGGER_RTT_Conf.h"/>
+				<F N="../../../external/segger_rtt/segger_rtt_dox_config.h"/>
+				<F N="../../../external/segger_rtt/SEGGER_RTT_printf.c"/>
+			</Folder>
+		</Folder>
+		<Folder Name="pca10040">
+			<Folder Name="s132">
+				<Folder Name="arm5_no_packs">
+					<Folder Name="_build">
+						<F N="pca10040/s132/arm5_no_packs/_build/app_button.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_button.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_button.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_error.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_error.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_error.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_error_weak.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_error_weak.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_error_weak.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_timer.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_timer.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_timer.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_util_platform.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_util_platform.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/app_util_platform.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.lst"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/arm_startup_nrf52.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_advdata.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_advdata.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_advdata.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_conn_params.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_conn_params.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_conn_params.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_lbs.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_lbs.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_lbs.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_srv_common.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_srv_common.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/ble_srv_common.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/boards.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/boards.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/boards.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/bsp.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/bsp.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/bsp.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/bsp_nfc.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/bsp_nfc.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/bsp_nfc.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/experimental_ble_app_blinky_pca10040_s132_nrf52832_xxaa.dep"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/hardfault_implementation.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/hardfault_implementation.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/hardfault_implementation.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/main.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/main.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/main.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.axf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.build_log.htm"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.hex"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.htm"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.lnp"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.map"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf52832_xxaa.sct"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_assert.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_assert.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_assert.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_clock.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_clock.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_clock.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_common.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_common.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_common.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_gpiote.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_gpiote.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_gpiote.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_saadc.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_saadc.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_saadc.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_uart.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_uart.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_drv_uart.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_log_backend_serial.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_log_backend_serial.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_log_backend_serial.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_log_frontend.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_log_frontend.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_log_frontend.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_saadc.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_saadc.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/nrf_saadc.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/oled.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/oled.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/oled.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/oledfont.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/oledfont.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/oledfont.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/rtt_syscalls_keil.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/rtt_syscalls_keil.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/rtt_syscalls_keil.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/sdk_errors.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/sdk_errors.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/sdk_errors.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/segger_rtt.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/segger_rtt.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/segger_rtt.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/segger_rtt_printf.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/segger_rtt_printf.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/segger_rtt_printf.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/softdevice_handler.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/softdevice_handler.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/softdevice_handler.o"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/system_nrf52.crf"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/system_nrf52.d"/>
+						<F N="pca10040/s132/arm5_no_packs/_build/system_nrf52.o"/>
+					</Folder>
+					<Folder Name="RTE">
+						<Folder Name="_nrf52832_xxaa">
+							<F N="pca10040/s132/arm5_no_packs/RTE/_nrf52832_xxaa/RTE_Components.h"/>
+						</Folder>
+						<Folder Name="Device">
+							<Folder Name="nRF52832_xxAA">
+								<F N="pca10040/s132/arm5_no_packs/RTE/Device/nRF52832_xxAA/arm_startup_nrf52.s"/>
+								<F N="pca10040/s132/arm5_no_packs/RTE/Device/nRF52832_xxAA/system_nrf52.c"/>
+							</Folder>
+						</Folder>
+					</Folder>
+					<F N="pca10040/s132/arm5_no_packs/experimental_ble_app_blinky_pca10040_s132.uvguix.shaniadolphin"/>
+					<F N="pca10040/s132/arm5_no_packs/experimental_ble_app_blinky_pca10040_s132.uvoptx"/>
+					<F N="pca10040/s132/arm5_no_packs/experimental_ble_app_blinky_pca10040_s132.uvprojx"/>
+					<F N="pca10040/s132/arm5_no_packs/JLinkLog.txt"/>
+					<F N="pca10040/s132/arm5_no_packs/JLinkSettings.ini"/>
+				</Folder>
+				<Folder Name="config">
+					<F N="pca10040/s132/config/sdk_config.h"/>
+				</Folder>
+			</Folder>
+		</Folder>
+		<F N="main.c"/>
+	</Files>
+</Project>
